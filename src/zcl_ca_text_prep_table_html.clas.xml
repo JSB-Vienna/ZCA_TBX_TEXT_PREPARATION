@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_TEXT_PREP_TABLE_HTML</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Text preparation for a table in HTML</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CSS_ELEMENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CSS elements</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_FONT_STYLE_FOR_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add font for table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_STYLE_FOR_BORDER_N_PADDING</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create style addition for the tags &apos;table&apos;, &apos;th&apos; and &apos;td&apos;</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_STYLE_FOR_CELL_ALIGNMENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Enhance style for the cell tags &apos;td&apos;+&apos;th&apos; to align the value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>HTML_TAG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>HTML tags</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_ALTERNATIVE_FONT_FAMILY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set alternative font family if req. font isn&apos;t installed</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_FONT_SIZE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set font size in &apos;em&apos;</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_REQUESTED_FONT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set requested font for this table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TRANSLATE_ALIGNMENT_2_HTML</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Translate alignment code into HTML key word</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TRANSLATE_FRAME_STYLE_2_HTML</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Translate frame style code into HTML key word</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TRANSLATE_FRAME_WIDTH_2_HTML</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Translate frame width code into HTML key word</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

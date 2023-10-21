@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_TEXT_PREPARATION_TABLE</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Text preparation of table values</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_TABLE_BODY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_TABLE_CAPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add caption (heading) of table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_TABLE_HEADER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add table / column header to table of prepared rows</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ATTACH_PREPARED_VALUE_2_LINE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Attach prepared value to current row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>BOOLEAN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Constants for numeric boolean flags</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_N_ADD_COLUMN_HEADER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create column header and add to table of prepared rows</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_N_ADD_TABLE_BODY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create table body and add each row to table of prepared rows</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_N_ATTACH_COL_HEAD_CELL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create and attach single column header to prepared row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_N_ATTACH_DATA_CELL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create and attach single data column to prepared row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DETERMINE_FIELD_LABEL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Determine field label as column header text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DETERMINE_REQUESTED_COLUMNS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Determine requested columns</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Technical description of the table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_ROW_DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get technical row description preparing add. techn. infos</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_A_TABLE_WITH_CONTENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check whether the value is of type table and has content</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_COLUMN_HEADER_REQUESTED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check whether the column header is requested</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_NAME_SET</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check whether the name is set -&gt; no replacment possible</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_TABLE_CAPTION_AVAILABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Is table caption available?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_VALUE_A_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check whether the value is of internal type table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_VALUE_BOUND</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check whether the value is bound</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>LINE_IN_PREPARATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepared table row currently in preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>OUTPUT_FIELD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Dynamically created reference for data row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PARENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Preparation of a text module</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREPARE_CELL_VALUE_FOR_OUTPUT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepare cell value for output</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREPARE_ORDER_OF_REQ_COLUMNS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepare order of requested columns</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REQUESTED_COLUMNS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepared table rows</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ROW_COMPONENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation: Data element / data cell</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SEL_OPTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Constants and value checks for select option tables</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TABLE_IN_PREPARATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation: Current table in preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TECHN_ROW</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation: Techn. details of used structure</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TP_OPTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation: Complete text in preparation for o</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_TABLE_HEADER</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_ADD_COLUMN_HEADER</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_ADD_TABLE_BODY</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_ATTACH_COL_HEAD_CELL</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_N_ATTACH_DATA_CELL</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>PARENT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Preparation of a text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>TABLE_SETTINGS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table settings</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_ROW_DESCRIPTION</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_A_TABLE_WITH_CONTENT</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Value is a table and has content</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_A_TABLE_WITH_CONTENT</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_COLUMN_HEADER_REQUESTED</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Column header is requested</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_NAME_SET</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_TABLE_CAPTION_AVAILABLE</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Table caption is available</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_VALUE_A_TABLE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_VALUE_BOUND</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_CELL_VALUE_FOR_OUTPUT</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepared value for output</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_CELL_VALUE_FOR_OUTPUT</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

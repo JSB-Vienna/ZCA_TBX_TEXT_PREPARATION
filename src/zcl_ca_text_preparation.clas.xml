@@ -1,0 +1,315 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_TEXT_PREPARATION</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Preparation of a text</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>LNK</KEY>
+     <ENTRY>Link</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>MST</KEY>
+     <ENTRY>* * * * *   P A T T E R N   * * * * *       from SAP system</ENTRY>
+     <LENGTH>100</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>TBL</KEY>
+     <ENTRY>Table</ENTRY>
+     <LENGTH>50</LENGTH>
+    </item>
+   </TPOOL>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>LNK</KEY>
+       <ENTRY>Link</ENTRY>
+       <LENGTH>80</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>MST</KEY>
+       <ENTRY>* * * * *   M U S T E R   * * * * *       aus SAP-System</ENTRY>
+       <LENGTH>100</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>TBL</KEY>
+       <ENTRY>Tabelle</ENTRY>
+       <LENGTH>50</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_HTML_ADDITON_4_SAP_SCRIPT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add HTML addition for SAP script if not found or correct</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_NEW_DDIC_DEFS_TO_FG_INCL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Add new DDIC structures as TABLES definition into FG include</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ARE_TEXT_LINES_PASSED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Are text lines already passed?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_INDEX_FOR_STRUCT_INSERTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get index for insertion of the new DDIC structure</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get instance to corresponding preparation type</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_TEXT_FOR_HINT_OF_A_SAMPLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get text for hint that the result is a sample of test system</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>INSERT_HINT_FOR_TEST</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Insert hint that text was created/mailed from a test system</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Checks whether the value is a relevant structure type</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_HINT_FOR_TEST_REQUIRED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Is the hint for testing purposes required?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_PRODUCTIVE_SYSTEM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Checks whether it is a productive system</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_STRUCTURE_ALREADY_DEFINED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Checks whether the structure is already defined or not</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>LOCK_SOURCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Lock include source to include new DDIC definitions</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>READ_FG_INCLUDE_WITH_DDIC_DEFS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Read source of FG include with DDIC table definitions</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REMOVE_UNUSED_SYMBOLS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Remove unused symbols</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_LINK_SYMBOLS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace link symbols</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_SAP_SCRIPT_SYMBOLS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace SAP script symbols (= structured values)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_SINGLE_SYMBOLS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace single symbols - replaces all occurrences</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_TABLE_SYMBOLS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace table symbols - replaces first occurrence only</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_DEFAULTS_IN_CTRL_SETTINGS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Provide defaults in control settings</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SOURCE_CODE_INCLUDE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Source of FG include with DDIC table definitions</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SOURCE_IS_LOCKED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Source of include is locked</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TECHN_DESCR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Technical description of a value</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TECHN_NAME</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Technical names for insertion of table definitions</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>UNLOCK_SOURCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Release source object</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>UPDATE_FG_INCLUDE_AND_GENERATE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Update changed include in DB + gen. FG and Where-Used-index</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_NEW_DDIC_DEFS_TO_FG_INCL</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ARE_TEXT_LINES_PASSED</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>PREPARATION_TYPE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Preparation type (see const ...=&gt;PREPARATION_TYPE-*)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INDEX_FOR_STRUCT_INSERTION</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Results of FIND statement, including the table index</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>PREPARATION_TYPE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Preparation type (see const ...=&gt;PREPARATION_TYPE-*)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
+     <SCONAME>DATA_VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Passed data value as reference</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = It is a relevant structure type</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_HINT_FOR_TEST_REQUIRED</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Yes, a hint for testing should be added</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_STRUCTURE_ALREADY_DEFINED</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Requested structure is already defined</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REMOVE_UNUSED_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_LINK_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_N_TRANSFORM</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_SAP_SCRIPT_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_SINGLE_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_TABLE_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_DEFAULTS_IN_CTRL_SETTINGS</CMPNAME>
+     <SCONAME>CONTROL_SETTINGS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Control settings for the text preparation</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_DEFAULTS_IN_CTRL_SETTINGS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

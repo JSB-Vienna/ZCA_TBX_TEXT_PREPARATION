@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_TEXT_PREPARATION_HTML</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Preparation of a HTML text</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>LNK</KEY>
+     <ENTRY>Link</ENTRY>
+     <LENGTH>25</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_OVERALL_SURROUNDING_TAGS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Surround document in tags for HTML declaration and body</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ASSEMBLE_LINK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Assemble link</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_LINK_DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get description to link</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_HTML_DOM_REQUESTED</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Is HTML DOM area requested?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>LINK_SETTINGS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Description for link and the link itself</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREPARE_LINK_N_ITS_DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Assemble link and set description in front of it</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_DEFAULTS_IN_LINK_SETTINGS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set defaults for link preparation settings</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>ASSEMBLE_LINK</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Assembled link</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>PREPARATION_TYPE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Preparation type (see const ...=&gt;PREPARATION_TYPE-*)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_LINK_DESCRIPTION</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation: Text in preparation for output</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_LINK_DESCRIPTION</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_HTML_DOM_REQUESTED</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Yes, create HTML DOM area (head and body tags)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_LINK_N_ITS_DESCRIPTION</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepared lines with description and link</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_LINK_N_ITS_DESCRIPTION</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

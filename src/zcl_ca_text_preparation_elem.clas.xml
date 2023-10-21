@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_TEXT_PREPARATION_ELEM</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Text preparation: Data element / data cell</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ALIGNMENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Alignment of element -&gt; see method DETERMINE_ALIGNMENT</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CHECK_VALUE_N_DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>COMPLETE_TECHNICAL_INFOS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Complete technical infos</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONVERT_VALUE_TYPE_CONFORM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert value from internal type into character format</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_DATA_REFERENCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create data reference for a table column</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DDIC_INFO</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Technical information from DDIC</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Technical description from RTTI</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DETERMINE_ALIGNMENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Determine alignment depending on type and output length</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NAME_TO_VALUE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Element name (defined in DDIC or passed by consumer)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>POSITION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Column position</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TP_OPTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constants and value checks for text module preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>VALUE_REF</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Either the passed value ref. or a created one for a column</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

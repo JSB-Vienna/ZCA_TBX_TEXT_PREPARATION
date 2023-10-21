@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_C_TEXT_PREPARATION</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Constants + value checks for text preparation</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>ALI</KEY>
+     <ENTRY>Alignment</ENTRY>
+     <LENGTH>50</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>FST</KEY>
+     <ENTRY>Frame style</ENTRY>
+     <LENGTH>50</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>FWI</KEY>
+     <ENTRY>Frame width</ENTRY>
+     <LENGTH>50</LENGTH>
+    </item>
+   </TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CHECK_AGAINST_FIXED_VALUES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check value against fixed_values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get instance</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_TECHNICAL_DESCRIPTION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get technical description of value reference</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>HTML</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constants for HTML preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>HTML_TAG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>HTML tags</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_ALIGNMENT_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Valid alignment passed?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_FONT_SIZE_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Valid frame style passed?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_FRAME_STYLE_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Valid frame style passed?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_FRAME_WIDTH_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Valid frame width passed?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_HTML_CONTROL_VALUE_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check value against fixed_values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_PREPARATION_TYPE_VALID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Valid target preparation type passed?</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREPARATION_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Target preparation type</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SINGLETON_INSTANCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Instance of the class itself</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TECHN_ADDITION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Technical additions to control preparation</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_AGAINST_FIXED_VALUES</CMPNAME>
+     <SCONAME>PARAM_NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Name of field/parameter for output in error message</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_AGAINST_FIXED_VALUES</CMPNAME>
+     <SCONAME>VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Value under test</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_AGAINST_FIXED_VALUES</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Class instance</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TECHNICAL_DESCRIPTION</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Technical description to passed value</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TECHNICAL_DESCRIPTION</CMPNAME>
+     <SCONAME>VALUE_REF</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Data reference of value</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TECHNICAL_DESCRIPTION</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_ALIGNMENT_VALID</CMPNAME>
+     <SCONAME>ALIGNMENT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Alignment</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_ALIGNMENT_VALID</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_FONT_SIZE_VALID</CMPNAME>
+     <SCONAME>FONT_SIZE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Font size</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_FONT_SIZE_VALID</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_FRAME_STYLE_VALID</CMPNAME>
+     <SCONAME>FRAME_STYLE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame style</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_FRAME_STYLE_VALID</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_FRAME_WIDTH_VALID</CMPNAME>
+     <SCONAME>FRAME_WIDTH</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame width</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_FRAME_WIDTH_VALID</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_HTML_CONTROL_VALUE_VALID</CMPNAME>
+     <SCONAME>NAME</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Name of field/parameter for output in error message</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_HTML_CONTROL_VALUE_VALID</CMPNAME>
+     <SCONAME>VALUE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Value under test</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_HTML_CONTROL_VALUE_VALID</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_PREPARATION_TYPE_VALID</CMPNAME>
+     <SCONAME>PREPARATION_TYPE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Target preparation type</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>IS_PREPARATION_TYPE_VALID</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

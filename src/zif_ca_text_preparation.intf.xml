@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_CA_TEXT_PREPARATION</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Text module preparation</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>BOOLEAN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Constants for numeric boolean flags</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONTROL_SETTINGS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>FIELDS_N_STRUCTURES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Range table with excluding or including output fields</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_RESULT_AS_SAP_OFFICE_TAB</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get result as SOLI_TAB (SAP office format, e. g. for mails)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_RESULT_AS_SAP_SCRIPT_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get result as SAP script module table (TLINE_TAB)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_RESULT_AS_STREAM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get result as stream (= STRING)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_RESULT_AS_WI_DESCR_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get result as workitem description table</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>LINKS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Links and their description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREPARATION_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Target type for text module preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_N_TRANSFORM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace variables and transform text into target format</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SEL_OPTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Constants and value checks for select option tables</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TABLES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table values</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TEXT_IN_PREPARATION</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation: Text in preparation for output</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TP_OPTIONS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Constants + value checks for text module preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>USE_TEXT_FROM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Import text from table or text module</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_RESULT_AS_SAP_OFFICE_TAB</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepared text as of line type SOLI (CHAR 255)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_RESULT_AS_SAP_SCRIPT_TABLE</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepared text as of line type TLINE (two fields!)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_RESULT_AS_SAP_SCRIPT_TABLE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_RESULT_AS_STREAM</CMPNAME>
+     <SCONAME>ADD_ADDITION_IF_MISSING</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>X = Add MAIL_HTML for task descriptions if not found</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_RESULT_AS_STREAM</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepared text as of type STRING</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_RESULT_AS_WI_DESCR_TABLE</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepared text as of line type TDLINE (CHAR 132)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_RESULT_AS_WI_DESCR_TABLE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_N_TRANSFORM</CMPNAME>
+     <SCONAME>CONTROL_SETTINGS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Text preparation: Control + font settings for all types</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_N_TRANSFORM</CMPNAME>
+     <SCONAME>FIELDS_N_STRUCTURES</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Name and value pairs for fields and structures</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_N_TRANSFORM</CMPNAME>
+     <SCONAME>LINKS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Links and their description</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_N_TRANSFORM</CMPNAME>
+     <SCONAME>TABLES</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table values</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_N_TRANSFORM</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>USE_TEXT_FROM</CMPNAME>
+     <SCONAME>TEXT_LINES</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table that contains the text lines to be prepared</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>USE_TEXT_FROM</CMPNAME>
+     <SCONAME>TEXT_MODULE_KEY</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Text module key (has to be maintained in SO10)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>USE_TEXT_FROM</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

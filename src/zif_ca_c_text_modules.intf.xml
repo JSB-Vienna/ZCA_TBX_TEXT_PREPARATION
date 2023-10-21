@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_INTF" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOINTERF>
+    <CLSNAME>ZIF_CA_C_TEXT_MODULES</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Constants for text module preparation</DESCRIPT>
+    <EXPOSURE>2</EXPOSURE>
+    <STATE>1</STATE>
+    <UNICODE>X</UNICODE>
+   </VSEOINTERF>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>C_DEF_FONTSIZE_MONOSPC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Default font size: for monospace font</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_DEF_FONTSIZE_PROP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Default font size: for proportional font</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_DEF_FONT_MONOSPC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Default font: for text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_DEF_FONT_PROP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Default font: for HTML</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FONTTYPE_MONOSPC</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Font type: Monospace</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FONTTYPE_PROP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Font type: Proportional</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FRAMESTYLE_INHERIT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame style: Inherit from a higher element</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FRAMESTYLE_NONE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame style: None (no frame/border)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FRAMESTYLE_RIDGE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame style: Ridge (like 3D)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FRAMESTYLE_SOLID</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame style: Solid</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FRAMEWIDTH_INHERIT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame width: Inherit from a higher element</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FRAMEWIDTH_MEDIUM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame width: Medium</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FRAMEWIDTH_THICK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame width: Thick</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_FRAMEWIDTH_THIN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame width: Thin</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_TABLE_DESC_ALIGNM_CENTER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame style: Inherit</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_TABLE_DESC_ALIGNM_INHERIT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame style: Inherit</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_TABLE_DESC_ALIGNM_LEFT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame style: Left</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_TABLE_DESC_ALIGNM_RIGHT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Frame style: Right</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

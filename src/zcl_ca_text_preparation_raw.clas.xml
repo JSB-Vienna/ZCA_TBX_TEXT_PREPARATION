@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_TEXT_PREPARATION_RAW</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Preparation of a RAW text</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_COLDELIM_HASH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delimiter for column</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_COLDELIM_TABULATOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Digit &apos;Tabulator&apos; in hex</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_LENGTH_MAIL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Length of mail line / row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_LENGTH_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Length of text line / row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_LENGTH_TOO_LONG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Length of requested fields is longer than row length</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>PREPARATION_TYPE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Preparation type (see const ...=&gt;PREPARATION_TYPE-*)</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>

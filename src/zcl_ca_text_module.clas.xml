@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_CLAS" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <VSEOCLASS>
+    <CLSNAME>ZCL_CA_TEXT_MODULE</CLSNAME>
+    <LANGU>E</LANGU>
+    <DESCRIPT>CA-TBX: Preparation of a text module</DESCRIPT>
+    <STATE>1</STATE>
+    <CLSCCINCL>X</CLSCCINCL>
+    <FIXPT>X</FIXPT>
+    <UNICODE>X</UNICODE>
+   </VSEOCLASS>
+   <TPOOL>
+    <item>
+     <ID>I</ID>
+     <KEY>LNK</KEY>
+     <ENTRY>Link</ENTRY>
+     <LENGTH>80</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>MST</KEY>
+     <ENTRY>* * * * *   P A T T E R N   * * * * *       from SAP system</ENTRY>
+     <LENGTH>100</LENGTH>
+    </item>
+    <item>
+     <ID>I</ID>
+     <KEY>TBL</KEY>
+     <ENTRY>Table</ENTRY>
+     <LENGTH>50</LENGTH>
+    </item>
+   </TPOOL>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>D</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>I</ID>
+       <KEY>LNK</KEY>
+       <ENTRY>Link</ENTRY>
+       <LENGTH>80</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>MST</KEY>
+       <ENTRY>* * * * *   M U S T E R   * * * * *       aus SAP-System</ENTRY>
+       <LENGTH>100</LENGTH>
+      </item>
+      <item>
+       <ID>I</ID>
+       <KEY>TBL</KEY>
+       <ENTRY>Tabelle</ENTRY>
+       <LENGTH>50</LENGTH>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
+   <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ATTACH_COLUMN_TO_OUTPUT_LINE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Attach column value to output line, incl. tags / tabulator</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CHECK_N_GENERATE_FUNCTION_POOL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Check FP for new structures and generate them</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>COMPLETE_TABLE_DEFAULTS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set default values for non-provided table settings</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONVERT_SOLI_TAB_2_HTML_STREAM</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert SOLI_TAB into HTML/TEXT stream for Fiori WF descr.</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONVERT_SOLI_TAB_2_HTML_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert SOLI_TAB into TDLINE table for WF description in BO</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONVERT_TEXT_2_MAIL_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert (SAP-Script) text into mail text</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_STYLE_FOR_TABLE_N_CELLS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create style addition for the tags &apos;table&apos;, &apos;th&apos; and &apos;td&apos;</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_SYMBOL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Create symbols for search (name bracketed in hashes)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_TABLE_HEADER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Output of a single column header</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_TABLE_LINE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Output of a single column header</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CS_CSS_ELEMENT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>HTML tags</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CS_HTMLTAG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>HTML tags</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_COLDELIM_HASH</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Delimiter for column</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_COLDELIM_TABULATOR</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Digit &apos;Tabulator&apos; in hex</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_LENGTH_MAIL</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Length of mail line / row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_LENGTH_TEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Length of text line / row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_LENGTH_TOO_LONG</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Length of requested fields is longer than row length</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_NAME_FUNCTION_GRP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Program name of function group with include below</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>C_NAME_INCL_DDIC_DEF</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Name of include with DDIC definitions of FG ZCA_TEXT_MODULES</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DETERMINE_TEXT_FIELD</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Determine text field - is it text module or mail length</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ENHANCE_CELL_STYLE_ALIGN_RIGHT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Enhance style for cell tags &apos;td&apos; to align the value right</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_TEXT_MODULE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get text module</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_TEXT_MODULE_N_REPLACE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Get text module and replace symbols</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>INSERT_HINT_FOR_TEST</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Insert hint that text was created/mailed from a test system</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>LOCK_SOURCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Lock report souce</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MRA_OUTPUT_FLDS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Range table with excluding or including output fields</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MS_TEXT_FONT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common object: Text and font types for output as mail</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MV_IS_MAILTEXT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>1 = Text will be prepared for a mail - formatting in HTML</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>OUTPUT_SINGLE_COLUMN</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Output of a single column</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>OUTPUT_SINGLE_COLUMN_HEADER</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Output of a single column header</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREPARE_LINK_LINES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepare link lines - Description what to do and the link</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREPARE_TABLE_LINES</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Prepare table data (= output)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PROVIDE_CELL_WITH_STYLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace link symbols</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_LINK_SYMBOLS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace link symbols</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_SINGLE_SYMBOLS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace single symbols /fields</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_TABLE_SYMBOLS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Replace table symbols by output of requested table data</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_HTML_TAG_FONT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Enclose current mail lines with font tags -&gt; face/font size</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_HTML_TAG_FOR_LINK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set tags around links that they recognized as links</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_HTML_TAG_INTRO_N_BODY</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Enclose completed mail in tags for HTML declaration and body</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_HTML_TAG_LINE_BREAK</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set line break tag at end of each text line</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_HTML_TAG_TABLE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Enclose table data with table and table record tags</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_TEXT_TYPE_N_FONT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Set text type, font and font size</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_S_STRU_COMP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Combined structure of component and DDIC description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_T_STRU_COMPS</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Table with combined data description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>UNLOCK_SOURCE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Release source object</DESCRIPT>
+    </SEOCOMPOTX>
+   </DESCRIPTIONS>
+   <DESCRIPTIONS_SUB>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_N_GENERATE_FUNCTION_POOL</CMPNAME>
+     <SCONAME>IT_FLDS_STRCS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common object: Value pairs - Name and value reference</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CHECK_N_GENERATE_FUNCTION_POOL</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONVERT_SOLI_TAB_2_HTML_STREAM</CMPNAME>
+     <SCONAME>IT_DETAILS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Details in SOLI_TAB</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONVERT_SOLI_TAB_2_HTML_STREAM</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Details in TDLINE for BO table element</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONVERT_SOLI_TAB_2_HTML_TABLE</CMPNAME>
+     <SCONAME>IT_DETAILS</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Details in SOLI_TAB</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONVERT_SOLI_TAB_2_HTML_TABLE</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Details in TDLINE for BO table element</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_TABLE_HEADER</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_TABLE_LINE</CMPNAME>
+     <SCONAME>ZCX_CA_CONV</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Conversion failed</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CREATE_TABLE_LINE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TEXT_MODULE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_TEXT_MODULE_N_REPLACE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>LOCK_SOURCE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>OUTPUT_SINGLE_COLUMN</CMPNAME>
+     <SCONAME>ZCX_CA_CONV</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Conversion failed</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>OUTPUT_SINGLE_COLUMN_HEADER</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_LINK_LINES</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_TABLE_LINES</CMPNAME>
+     <SCONAME>ZCX_CA_CONV</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Conversion failed</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_TABLE_LINES</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_LINK_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_TABLE_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_CONV</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: Conversion failed</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_TABLE_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_MODULE</SCONAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Common exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+   </DESCRIPTIONS_SUB>
+  </asx:values>
+ </asx:abap>
+</abapGit>
