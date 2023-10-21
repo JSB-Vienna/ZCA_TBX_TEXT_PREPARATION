@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>CA-TBX: Preparation text modules</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZCA_TEXT_MODULESF01</SOBJ_NAME>
+    <SOBJ_NAME>LZCA_TEXT_MODULESTAB</SOBJ_NAME>
+    <SOBJ_NAME>LZCA_TEXT_MODULESTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZCA_TEXT_MODULES</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_CA_REPLACE_SYMBOLS</FUNCNAME>
+     <SHORT_TEXT>Replace text symbols</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>IS_THEAD</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>THEAD</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>IT_FLDS_STRCS</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZCA_TT_PARAMS</TYP>
+      </RSIMP>
+     </IMPORT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>CT_TEXT</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TLINE_TAB</TYP>
+      </RSCHA>
+     </CHANGING>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>ZCX_CA_TEXT_MODULE</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>IS_THEAD</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>IT_FLDS_STRCS</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>CT_TEXT</PARAMETER>
+       <KIND>P</KIND>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ZCX_CA_TEXT_MODULE</PARAMETER>
+       <KIND>X</KIND>
+      </RSFDO>
+     </DOCUMENTATION>
+     <EXCEPTION_CLASSES>X</EXCEPTION_CLASSES>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

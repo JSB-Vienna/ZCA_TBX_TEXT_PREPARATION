@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_FUGR" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <AREAT>CA-TBX: Preparation text modules</AREAT>
+   <INCLUDES>
+    <SOBJ_NAME>LZCA_TEXT_PREPARATIONF01</SOBJ_NAME>
+    <SOBJ_NAME>LZCA_TEXT_PREPARATIONTAB</SOBJ_NAME>
+    <SOBJ_NAME>LZCA_TEXT_PREPARATIONTOP</SOBJ_NAME>
+    <SOBJ_NAME>SAPLZCA_TEXT_PREPARATION</SOBJ_NAME>
+   </INCLUDES>
+   <FUNCTIONS>
+    <item>
+     <FUNCNAME>Z_CA_REPLACE_TEXT_SYMBOLS</FUNCNAME>
+     <SHORT_TEXT>Common object: Replace text symbols/p&gt; &quot;! &lt;p&gt;The replacement of SAP script</SHORT_TEXT>
+     <IMPORT>
+      <RSIMP>
+       <PARAMETER>TEXT_MODULE_HEADER</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>THEAD</TYP>
+      </RSIMP>
+      <RSIMP>
+       <PARAMETER>FIELDS_N_STRUCTURES</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>ZCA_TT_PARAMS</TYP>
+      </RSIMP>
+     </IMPORT>
+     <CHANGING>
+      <RSCHA>
+       <PARAMETER>TEXT_MODULE_LINES</PARAMETER>
+       <REFERENCE>X</REFERENCE>
+       <TYP>TLINE_TAB</TYP>
+      </RSCHA>
+     </CHANGING>
+     <EXCEPTION>
+      <RSEXC>
+       <EXCEPTION>ZCX_CA_TEXT_PREPARATION</EXCEPTION>
+      </RSEXC>
+     </EXCEPTION>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>TEXT_MODULE_HEADER</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>SAPscript: Text Header</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>FIELDS_N_STRUCTURES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Field and structure values</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>TEXT_MODULE_LINES</PARAMETER>
+       <KIND>P</KIND>
+       <STEXT>Text module lines where the symbols should be replaced</STEXT>
+      </RSFDO>
+      <RSFDO>
+       <PARAMETER>ZCX_CA_TEXT_PREPARATION</PARAMETER>
+       <KIND>X</KIND>
+       <STEXT>Common exception: While preparing text module</STEXT>
+      </RSFDO>
+     </DOCUMENTATION>
+     <EXCEPTION_CLASSES>X</EXCEPTION_CLASSES>
+    </item>
+   </FUNCTIONS>
+  </asx:values>
+ </asx:abap>
+</abapGit>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_TABL" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <DD02V>
+    <TABNAME>ZCA_S_TEXT_PREP_CTRL_SETTINGS</TABNAME>
+    <DDLANGUAGE>E</DDLANGUAGE>
+    <TABCLASS>INTTAB</TABCLASS>
+    <LANGDEP>X</LANGDEP>
+    <DDTEXT>CA-TBX: Text preparation: Control + font settings all types</DDTEXT>
+    <MASTERLANG>E</MASTERLANG>
+    <EXCLASS>3</EXCLASS>
+   </DD02V>
+   <DD03P_TABLE>
+    <DD03P>
+     <FIELDNAME>WITHOUT_HINT_TEST</FIELDNAME>
+     <ROLLNAME>ZCA_D_WITHOUT_HINT_TEST</ROLLNAME>
+     <ADMINFIELD>0</ADMINFIELD>
+     <VALEXI>X</VALEXI>
+     <SHLPORIGIN>F</SHLPORIGIN>
+     <COMPTYPE>E</COMPTYPE>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>REMOVE_UNUSED_SYMBOLS</FIELDNAME>
+     <ROLLNAME>ZCA_D_REMOVE_UNUSED_SYMBOLS</ROLLNAME>
+     <ADMINFIELD>0</ADMINFIELD>
+     <VALEXI>X</VALEXI>
+     <SHLPORIGIN>F</SHLPORIGIN>
+     <COMPTYPE>E</COMPTYPE>
+    </DD03P>
+    <DD03P>
+     <FIELDNAME>.INCLUDE</FIELDNAME>
+     <ADMINFIELD>0</ADMINFIELD>
+     <PRECFIELD>ZCA_S_TEXT_PREP_FONTS_FOR_HTML</PRECFIELD>
+     <MASK>      S</MASK>
+     <DDTEXT>CA-TBX: Text preparation: Control and font settings for HTML</DDTEXT>
+     <COMPTYPE>S</COMPTYPE>
+     <GROUPNAME>S_HTML_FONTS</GROUPNAME>
+    </DD03P>
+   </DD03P_TABLE>
+  </asx:values>
+ </asx:abap>
+</abapGit>
