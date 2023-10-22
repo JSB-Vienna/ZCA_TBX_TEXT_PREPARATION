@@ -29,7 +29,7 @@ CLASS ZCL_CA_TEXT_PREPARATION_APM IMPLEMENTATION.
          VALUE #(
             group_id        = 'itinere.at'
             artifact_id     = 'zca_tbx_text_preparation'
-            version         = '0.1.0'
+            version         = '1.0.0'
             repository_type = 'abapGit'
             git_url         = 'https://github.com/JSB-Vienna/zca_tbx_text_preparation.git'
             dependencies    =
@@ -37,7 +37,7 @@ CLASS ZCL_CA_TEXT_PREPARATION_APM IMPLEMENTATION.
                       ( group_id       = 'itinere.at'
                         artifact_id    = 'zca_tbx_base'
                         git_url        = 'https://github.com/JSB-Vienna/zca_tbx_base.git'
-                        version        = '0.1.0'
+                        version        = '1.0.0'
                         target_package = 'zca_tbx_base' ) ) ) ##no_text.
   ENDMETHOD.                    "constructor
 ENDCLASS.
