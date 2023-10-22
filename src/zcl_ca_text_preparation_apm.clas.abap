@@ -20,7 +20,6 @@ ENDCLASS.
 
 CLASS ZCL_CA_TEXT_PREPARATION_APM IMPLEMENTATION.
 
-
   METHOD constructor.
     "-----------------------------------------------------------------*
     "   Constructor
@@ -35,9 +34,10 @@ CLASS ZCL_CA_TEXT_PREPARATION_APM IMPLEMENTATION.
             dependencies    =
                   VALUE #(
                       ( group_id       = 'itinere.at'
-                        artifact_id    = 'zca_tbx_base'
-                        git_url        = 'https://github.com/JSB-Vienna/zca_tbx_base.git'
+                        artifact_id    = 'zca_toolbox'
+                        git_url        = 'https://github.com/JSB-Vienna/zca_toolbox.git'
                         version        = '1.0.0'
-                        target_package = 'zca_tbx_base' ) ) ) ##no_text.
+                        target_package = 'zca_toolbox' ) ) ) ##no_text.
   ENDMETHOD.                    "constructor
+  
 ENDCLASS.
