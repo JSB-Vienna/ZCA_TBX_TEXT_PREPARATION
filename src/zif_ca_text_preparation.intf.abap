@@ -155,6 +155,11 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! @parameter tables               | <p class="shorttext synchronized" lang="en">Table values</p>
     "! <p>Each entry of this table represent one internal table with its controlling attributes. A lot of the
     "! attributes are only relevant for the transformation into HTML.</p>
+    "! <p><strong><em>HINT to parameter column SIGN_FOR_FLDS</em></strong>: Here you can use well known characters
+    "! 'I'nclude or 'E'xclude. But be aware when using 'E' that the named fields in T_OUTPUT_FLDS are only used
+    "! to exclude them from the output and that it is not possible to give in an order for the rest of the fields.
+    "! In the case you have much more inclusive than exclusive fields and need a different order than use either
+    "! a specific for your needs or build little routine that creates the list of needed fields.</p>
     "! <p><strong><em>Reserve always a complete line</em></strong> in your text module for a table since the
     "! complete line with the corresponding symbol (e. g. #T_NOTES#) will replaced, irrespective what else the
     "! line contains.</p>

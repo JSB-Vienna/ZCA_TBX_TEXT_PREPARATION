@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">CA-TBX: Preparation of a text module</p>
+"! <p class="shorttext synchronized" lang="en">CA-TBX: OBSOLETE!! Use ZCL_CA_TEXT_PREPARATION instead!!</p>
 CLASS zcl_ca_text_module DEFINITION PUBLIC
                                     FINAL
                                     CREATE PUBLIC.

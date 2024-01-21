@@ -117,7 +117,10 @@ CLASS zcl_ca_text_preparation_html IMPLEMENTATION.
     "   Assemble link
     "-----------------------------------------------------------------*
     IF link_settings->link IS INITIAL.
-      result = link_settings->name.    "To let the consumer know which link is incomplete
+      IF link_settings->keep_symbol EQ boolean->true.
+        result = link_settings->name.    "To let the consumer know which link is incomplete
+      ENDIF.
+
       RETURN.
     ENDIF.
 
@@ -286,14 +289,19 @@ CLASS zcl_ca_text_preparation_html IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "Set defaults if no relevant values available
 
-    "Force a line break at the end of the link
+    "Force a line break at the end of the link -> Default = Set a line break at the end
     IF link_settings->force_line_break CN '01'.
       link_settings->force_line_break = boolean->true.
     ENDIF.
 
-    "Force a initial line below the link
+    "Force a initial line below the link -> Default = No additional empty line
     IF link_settings->force_init_line CN '01'.
       link_settings->force_init_line = boolean->false.
+    ENDIF.
+
+    "Don't delete the symbol in the text as hint for an error -> Default = Delete symbol
+    IF link_settings->keep_symbol CN '01'.
+      link_settings->keep_symbol = boolean->false.
     ENDIF.
   ENDMETHOD.                    "set_defaults_in_link_settings
 

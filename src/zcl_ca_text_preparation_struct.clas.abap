@@ -112,6 +112,7 @@ CLASS zcl_ca_text_preparation_struct DEFINITION PUBLIC
 ENDCLASS.                     "zcl_ca_text_preparation_struct  DEFINITION
 
 
+
 CLASS zcl_ca_text_preparation_struct IMPLEMENTATION.
 
   METHOD add_as_elementary_component.
@@ -160,7 +161,8 @@ CLASS zcl_ca_text_preparation_struct IMPLEMENTATION.
 
         CASE row_description->kind.
           WHEN row_description->kind_elem.
-            add_as_elementary_component( structure_component = VALUE #( "name = `LINE` ##no_text
+            "Table is defined of a single data element + has therefore no components
+            add_as_elementary_component( structure_component = VALUE #( "name = `TABLE_LINE` ##no_text
                                                                         type = CAST #( row_description ) )
                                          position            = 1 ).
 

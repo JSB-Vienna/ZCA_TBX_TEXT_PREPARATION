@@ -69,6 +69,15 @@ public section.
       attr3 type scx_attrname value '',
       attr4 type scx_attrname value '',
     end of NO_TEXT_AVAILABLE .
+  constants:
+    begin of NO_RESULT_DUE_TO_PARAM_COMBI,
+      msgid type symsgid value 'ZCA_TOOLBOX',
+      msgno type symsgno value '121',
+      attr1 type scx_attrname value 'MV_MSGV1',
+      attr2 type scx_attrname value 'MV_MSGV2',
+      attr3 type scx_attrname value '',
+      attr4 type scx_attrname value '',
+    end of NO_RESULT_DUE_TO_PARAM_COMBI .
   constants C_ZCX_CA_TEXT_PREPARATION type SEOCLSNAME value 'ZCX_CA_TEXT_PREPARATION' ##NO_TEXT.
 
     "! <p class="shorttext synchronized" lang="en">CONSTRUCTOR</p>

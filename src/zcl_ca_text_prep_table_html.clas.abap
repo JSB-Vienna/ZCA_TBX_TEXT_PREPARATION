@@ -148,6 +148,7 @@ CLASS zcl_ca_text_prep_table_html DEFINITION PUBLIC
 ENDCLASS.                     "zcl_ca_text_prep_table_html  DEFINITION
 
 
+
 CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
 
   METHOD add_table_body.
@@ -221,17 +222,27 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_row-open ) ).     "<tr>
 *    table_in_preparation->add_line_at_the_end( condense( |<tr style="{ get_style_for_border_n_padding( ) }">| ) ) ##no_text.
 
-    LOOP AT settings->t_output_flds REFERENCE INTO output_field
-                                    WHERE fieldname IN requested_columns.
-      TRY.
-          row_component = techn_row->components[ KEY primary_key
-                                                 name = output_field->fieldname ]-element.
-          create_n_attach_col_head_cell( ).
+    CASE settings->sign_for_flds.
+      WHEN sel_options->sign-incl.
+        LOOP AT settings->t_output_flds REFERENCE INTO output_field.
+          row_component = VALUE #( techn_row->components[ KEY primary_key
+                                                          name = output_field->fieldname ]-element OPTIONAL ).
+          IF row_component IS BOUND.
+            create_n_attach_col_head_cell( ).
+          ENDIF.
+        ENDLOOP.
 
-        CATCH cx_sy_itab_line_not_found.
-          CONTINUE.
-      ENDTRY.
-    ENDLOOP.
+      WHEN sel_options->sign-excl.
+        LOOP AT techn_row->components USING KEY primary_key
+                                      REFERENCE INTO DATA(_component)
+                                          WHERE name IN requested_columns.
+          output_field  = REF #( settings->t_output_flds[ fieldname = _component->name ] OPTIONAL ).
+          IF output_field IS BOUND.
+            row_component = _component->element.
+            create_n_attach_col_head_cell( ).
+          ENDIF.
+        ENDLOOP.
+    ENDCASE.
 
     table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_row-close ) ).   "</tr>
   ENDMETHOD.                    "create_n_add_column_header
@@ -259,17 +270,27 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
       table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_row-open ) ).     "<tr>
 *      table_in_preparation->add_line_at_the_end( condense( |<tr style="{ get_style_for_border_n_padding( ) }">| ) ) ##no_text.
 
-      LOOP AT settings->t_output_flds REFERENCE INTO output_field
-                                      WHERE fieldname IN requested_columns.
-        TRY.
-            row_component = techn_row->components[ KEY primary_key
-                                                   name = output_field->fieldname ]-element.
-            create_n_attach_data_cell( ).
+      CASE settings->sign_for_flds.
+        WHEN sel_options->sign-incl.
+          LOOP AT settings->t_output_flds REFERENCE INTO output_field.
+            row_component = VALUE #( techn_row->components[ KEY primary_key
+                                                            name = output_field->fieldname ]-element OPTIONAL ).
+            IF row_component IS BOUND.
+              create_n_attach_data_cell( ).
+            ENDIF.
+          ENDLOOP.
 
-          CATCH cx_sy_itab_line_not_found.
-            CONTINUE.
-        ENDTRY.
-      ENDLOOP.
+        WHEN sel_options->sign-excl.
+          LOOP AT techn_row->components USING KEY primary_key
+                                        REFERENCE INTO DATA(_component)
+                                            WHERE name IN requested_columns.
+            output_field  = REF #( settings->t_output_flds[ fieldname = _component->name ] OPTIONAL ).
+            IF output_field IS BOUND.
+              row_component = _component->element.
+              create_n_attach_data_cell( ).
+            ENDIF.
+          ENDLOOP.
+      ENDCASE.
 
       table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_row-close ) ).   "</tr>
     ENDLOOP.
@@ -384,12 +405,14 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
         ASSIGN techn_row->table_row->* TO <table_row>.
         ASSERT sy-subrc EQ 0.
 
-        IF output_field->fld_name_currency_key IS NOT INITIAL.
+        IF output_field                        IS BOUND AND
+           output_field->fld_name_currency_key IS NOT INITIAL.
           ASSIGN COMPONENT output_field->fld_name_currency_key OF STRUCTURE <table_row> TO <currency>.
           ASSERT sy-subrc EQ 0.
           ASSIGN _no_unit_of_measure TO <unit_of_measure>.
 
-        ELSEIF output_field->fld_name_unit_key IS NOT INITIAL.
+        ELSEIF output_field                    IS BOUND AND
+               output_field->fld_name_unit_key IS NOT INITIAL.
           ASSIGN COMPONENT output_field->fld_name_unit_key OF STRUCTURE <table_row> TO <unit_of_measure>.
           ASSERT sy-subrc EQ 0.
           ASSIGN _no_currency TO <currency>.

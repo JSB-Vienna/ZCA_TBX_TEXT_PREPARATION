@@ -42,11 +42,18 @@ CLASS zcl_ca_text_preparation_raw DEFINITION PUBLIC
       "! <p class="shorttext synchronized" lang="en">Digit 'Tabulator' in hex</p>
       c_coldelim_tabulator TYPE syhex02 VALUE '0900'  ##no_text.
 
-ENDCLASS.
+ENDCLASS.                     "zcl_ca_text_module_raw  DEFINITION
 
 
 
-CLASS ZCL_CA_TEXT_PREPARATION_RAW IMPLEMENTATION.
+CLASS zcl_ca_text_preparation_raw IMPLEMENTATION.
+
+  METHOD constructor.
+    "-----------------------------------------------------------------*
+    "   Constructor
+    "-----------------------------------------------------------------*
+    super->constructor( preparation_type ).
+  ENDMETHOD.                    "constructor
 
 
   METHOD insert_hint_for_test.
@@ -81,11 +88,6 @@ CLASS ZCL_CA_TEXT_PREPARATION_RAW IMPLEMENTATION.
     super->set_defaults_in_ctrl_settings( control_settings ).
   ENDMETHOD.                    "set_defaults_in_ctrl_settings
 
+ENDCLASS.                     "zcl_ca_text_module_raw  IMPLEMENTATION
 
-  METHOD constructor.
-    "-----------------------------------------------------------------*
-    "   Constructor
-    "-----------------------------------------------------------------*
-    super->constructor( preparation_type ).
-  ENDMETHOD.                    "constructor
-ENDCLASS.
+

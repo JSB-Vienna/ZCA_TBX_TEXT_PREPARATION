@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">CA-TBX: Constants for text module preparation</p>
+"! <p class="shorttext synchronized" lang="en">CA-TBX: OBSOLETE! Use ZCL_CA_C_TEXT_PREPARATION instead!</p>
 INTERFACE zif_ca_c_text_modules PUBLIC.
 * i n t e r f a c e s
   INTERFACES:

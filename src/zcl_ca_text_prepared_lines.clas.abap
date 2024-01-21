@@ -150,6 +150,7 @@ CLASS zcl_ca_text_prepared_lines DEFINITION PUBLIC
 ENDCLASS.                     "zcl_ca_text_prepared_lines  DEFINITION
 
 
+
 CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
 
   METHOD add_line_at_the_end.
@@ -374,8 +375,12 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
     CASE parent->preparation_type.
       WHEN parent->tp_options->preparation_type-html.
         "Add a line break to each raw line before preparation starts. To do it later, is much worse.
-        text_lines = VALUE #( FOR _text_line_for_html IN text_module_lines
-                                    ( line = CONV #( |{ _text_line_for_html-tdline }{ tp_options->html_tag-line_break }| ) ) ).
+        text_lines = VALUE #(
+            FOR _text_line_for_html IN text_module_lines
+                  ( line = CONV #(       "If text line ends already with a line break <br> then keep it as is
+                       COND #( WHEN _text_line_for_html-tdline CP |*{ tp_options->html_tag-line_break }|
+                                 THEN _text_line_for_html-tdline
+                                 ELSE |{ _text_line_for_html-tdline }{ tp_options->html_tag-line_break }| ) ) ) ).
 
       WHEN parent->tp_options->preparation_type-raw.
         text_lines = VALUE #( FOR _text_line_for_raw IN text_module_lines

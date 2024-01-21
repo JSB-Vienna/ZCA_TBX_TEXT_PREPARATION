@@ -83,6 +83,7 @@ CLASS zcl_ca_text_preparation_elem DEFINITION PUBLIC
 ENDCLASS.                     "zcl_ca_text_preparation_elem  DEFINITION
 
 
+
 CLASS zcl_ca_text_preparation_elem IMPLEMENTATION.
 
   METHOD check_value_n_description.

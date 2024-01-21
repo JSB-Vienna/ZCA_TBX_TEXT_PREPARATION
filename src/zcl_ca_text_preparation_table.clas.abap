@@ -232,6 +232,7 @@ CLASS zcl_ca_text_preparation_table DEFINITION PUBLIC
 ENDCLASS.                     "zcl_ca_text_preparation_table  DEFINITION
 
 
+
 CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
 
   METHOD attach_prepared_value_2_line.
@@ -307,12 +308,8 @@ CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
     ELSE.
       "Put all fields of the structures into the settings. Only elementary components are left in TECHN_ROW!
       settings->t_output_flds = VALUE #( FOR _component_for_output IN techn_row->components
-                                                               ( fieldname = _component_for_output-name ) ).
-
-      requested_columns = VALUE #( FOR _component IN techn_row->components
-                                                               ( sign   = sel_options->sign-incl
-                                                                 option = sel_options->option-eq
-                                                                 low    = _component-name ) ).
+                                                               ( col_order = _component_for_output-position
+                                                                 fieldname = _component_for_output-name ) ).
     ENDIF.
   ENDMETHOD.                    "determine_requested_columns
 
@@ -480,6 +477,17 @@ CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
     "Keep the execution order of this IF statement and the following methods as they depend on each other.
     IF settings->sign_for_flds CN 'IE' ##no_text.
       settings->sign_for_flds = sel_options->sign-incl.    "Include columns is default
+    ENDIF.
+
+    IF settings->sign_for_flds EQ sel_options->sign-excl AND
+       settings->t_output_flds IS INITIAL.
+      "The combination of &1 and &2 will result in no output - adapt parameters
+      RAISE EXCEPTION TYPE zcx_ca_text_preparation
+        EXPORTING
+          textid   = zcx_ca_text_preparation=>no_result_due_to_param_combi
+          mv_msgty = zcx_ca_text_preparation=>c_msgty_e
+          mv_msgv1 = |SIGN_FOR_FLDS = 'E'|
+          mv_msgv2 = |T_OUTPUT_FLDS = INITIAL| ##no_text.
     ENDIF.
 
     determine_requested_columns( ).
