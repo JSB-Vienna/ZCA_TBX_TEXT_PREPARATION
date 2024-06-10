@@ -159,7 +159,11 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! 'I'nclude or 'E'xclude. But be aware when using 'E' that the named fields in T_OUTPUT_FLDS are only used
     "! to exclude them from the output and that it is not possible to give in an order for the rest of the fields.
     "! In the case you have much more inclusive than exclusive fields and need a different order than use either
-    "! a specific for your needs or build little routine that creates the list of needed fields.</p>
+    "! a specific definition for your needs or build a little routine that creates the list of needed fields.</p>
+    "! <p>Furthermore you can pass an individual table header description. Which one you should provide depends
+    "! on the output length of the column (mostly defined in the domain). For an output length lower equal 10
+    "! use field <strong><em>SCRTEXT_S</em></strong>, lower equal 20 use <strong><em>SCRTEXT_M</em></strong>
+    "! and for all others use <strong><em>SCRTEXT_L</em></strong>.</p>
     "! <p><strong><em>Reserve always a complete line</em></strong> in your text module for a table since the
     "! complete line with the corresponding symbol (e. g. #T_NOTES#) will replaced, irrespective what else the
     "! line contains.</p>
