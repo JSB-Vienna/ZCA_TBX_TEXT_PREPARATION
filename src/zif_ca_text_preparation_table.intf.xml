@@ -4,17 +4,33 @@
   <asx:values>
    <VSEOINTERF>
     <CLSNAME>ZIF_CA_TEXT_PREPARATION_TABLE</CLSNAME>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
     <DESCRIPT>CA-TBX: Text preparation of table values</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <UNICODE>X</UNICODE>
    </VSEOINTERF>
+   <DESCRIPTIONS_INTERFACE>
+    <SEOCLASSTX>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation of table values</DESCRIPT>
+    </SEOCLASSTX>
+   </DESCRIPTIONS_INTERFACE>
    <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>CONTROL_SETTINGS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Text preparation: Control + font settings for all types</DESCRIPT>
+    </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CONTROL_SETTINGS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Text preparation: Control + font settings for all types</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PREPARE_TABLE_ROWS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Description</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>PREPARE_TABLE_ROWS</CMPNAME>
@@ -23,13 +39,28 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>SETTINGS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Control settings for table preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SETTINGS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Control settings for table preparation</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>SET_DEFAULTS_IN_TABLE_SETTINGS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Set default values for non-provided table settings</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_DEFAULTS_IN_TABLE_SETTINGS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Set default values for non-provided table settings</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TECHN_TABLE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Technical description of the table</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TECHN_TABLE</CMPNAME>
@@ -41,8 +72,20 @@
     <SEOSUBCOTX>
      <CMPNAME>PREPARE_TABLE_ROWS</CMPNAME>
      <SCONAME>RESULT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Prepared table rows</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_TABLE_ROWS</CMPNAME>
+     <SCONAME>RESULT</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Prepared table rows</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_TABLE_ROWS</CMPNAME>
+     <SCONAME>ZCX_CA_CONV</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Common exception: Conversion failed</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>PREPARE_TABLE_ROWS</CMPNAME>
@@ -53,7 +96,19 @@
     <SEOSUBCOTX>
      <CMPNAME>PREPARE_TABLE_ROWS</CMPNAME>
      <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>PREPARE_TABLE_ROWS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>SET_DEFAULTS_IN_TABLE_SETTINGS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>D</LANGU>
      <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>

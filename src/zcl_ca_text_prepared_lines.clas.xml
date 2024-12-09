@@ -4,18 +4,34 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_CA_TEXT_PREPARED_LINES</CLSNAME>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
     <DESCRIPT>CA-TBX: Text preparation: Text in preparation for output</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <DESCRIPTIONS_CLASS>
+    <SEOCLASSTX>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation: Text in preparation for output</DESCRIPT>
+    </SEOCLASSTX>
+   </DESCRIPTIONS_CLASS>
    <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_LINE_AT_THE_END</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Append a line to text lines at the end</DESCRIPT>
+    </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>ADD_LINE_AT_THE_END</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Append a line to text lines at the end</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ARE_TEXT_LINES_PASSED</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Are text lines already passed?</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>ARE_TEXT_LINES_PASSED</CMPNAME>
@@ -24,13 +40,33 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Constructor</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CONTAINS_MAIL_HTML_COMMAND</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Checks whether the text contains the MAIL_HTML command</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONTAINS_MAIL_HTML_COMMAND</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Checks whether the text contains the MAIL_HTML command</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONVERT_IN_TEXT_MODULE_FORMAT</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Convert text lines into text module (SAP-Script)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_SYMBOL_FROM_VALUE_NAME</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Create symbols for search (name is bracketed in hashes)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CREATE_SYMBOL_FROM_VALUE_NAME</CMPNAME>
@@ -39,8 +75,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>DOES_SYMBOL_OCCUR_IN_TEXT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Returns whether a symbol occur in the text lines</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DOES_SYMBOL_OCCUR_IN_TEXT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Returns whether a symbol occur in the text lines</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>EXCHANGE_SYMBOL_BY_TABLE_ROWS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Exchange table symbol by prepared table rows</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>EXCHANGE_SYMBOL_BY_TABLE_ROWS</CMPNAME>
@@ -48,9 +94,9 @@
      <DESCRIPT>Exchange table symbol by prepared table rows</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
-     <CMPNAME>GET_IN_TEXT_MODULE_FORMAT</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Convert text lines into text module (SAP-Script)</DESCRIPT>
+     <CMPNAME>GET_TEXT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Get text in current state, e. g. for additional manipulation</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>GET_TEXT</CMPNAME>
@@ -59,8 +105,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>INSERT_LINE_AT_THE_BEGINNING</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Insert a line into text lines at the beginning (= index 1)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>INSERT_LINE_AT_THE_BEGINNING</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Insert a line into text lines at the beginning (= index 1)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>IS_A_TEXT_MODULE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Returns whether the text is a text module</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>IS_A_TEXT_MODULE</CMPNAME>
@@ -69,8 +125,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>MATCHING_RESULT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Result of FIND / REPLACE statements</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>MATCHING_RESULT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Result of FIND / REPLACE statements</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>PARENT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX: Text module preparation</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>PARENT</CMPNAME>
@@ -79,8 +145,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>READ_TEXT_MODULE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Read lines of text module</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>READ_TEXT_MODULE</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Read lines of text module</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>RECONVERT_INTO_TXT_LINES</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>(Re-)Convert text module (SAP-Script) into text lines</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>RECONVERT_INTO_TXT_LINES</CMPNAME>
@@ -89,8 +165,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>REMOVE_UNUSED_SYMBOLS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Remove unused symbols</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REMOVE_UNUSED_SYMBOLS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Remove unused symbols</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_SAP_SCRIPT_SYMBOLS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Replace SAP script symbols (= structured values)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>REPLACE_SAP_SCRIPT_SYMBOLS</CMPNAME>
@@ -99,8 +185,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>REPLACE_SYMBOL_BY_VALUE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Replace symbol by value in prepared text lines</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>REPLACE_SYMBOL_BY_VALUE</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Replace symbol by value in prepared text lines</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>SET_TEXT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Set text, e. g. after additional manipulation</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>SET_TEXT</CMPNAME>
@@ -109,8 +205,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TEXT_LINES</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Text lines (either imported from table or text module)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TEXT_LINES</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Text lines (either imported from table or text module)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TEXT_MODULE_HEADER</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Text module header (includes the text module key!)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TEXT_MODULE_HEADER</CMPNAME>
@@ -119,8 +225,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TEXT_MODULE_LINES</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Text module lines (until replacement via SAP script FMs)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TEXT_MODULE_LINES</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Text module lines (until replacement via SAP script FMs)</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TP_OPTIONS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX: Constants + value checks for text module preparation</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TP_OPTIONS</CMPNAME>
@@ -132,8 +248,20 @@
     <SEOSUBCOTX>
      <CMPNAME>ARE_TEXT_LINES_PASSED</CMPNAME>
      <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ARE_TEXT_LINES_PASSED</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>PARENT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX: Text module preparation</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
@@ -144,8 +272,20 @@
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>TEXT_LINES</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Table that contains the text lines to be prepared</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>TEXT_LINES</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Table that contains the text lines to be prepared</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>TEXT_MODULE_KEY</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Text module key (has to be maintained in SO10)</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
@@ -156,14 +296,32 @@
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>READ_TEXT_MODULE</CMPNAME>
      <SCONAME>TEXT_MODULE_KEY</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Text module key (has to be maintained in SO10)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>READ_TEXT_MODULE</CMPNAME>
+     <SCONAME>TEXT_MODULE_KEY</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Text module key (has to be maintained in SO10)</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>READ_TEXT_MODULE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>READ_TEXT_MODULE</CMPNAME>
@@ -174,7 +332,19 @@
     <SEOSUBCOTX>
      <CMPNAME>REMOVE_UNUSED_SYMBOLS</CMPNAME>
      <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REMOVE_UNUSED_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>REPLACE_SAP_SCRIPT_SYMBOLS</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>D</LANGU>
      <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>

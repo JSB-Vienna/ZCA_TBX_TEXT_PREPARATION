@@ -12,7 +12,7 @@
    <FUNCTIONS>
     <item>
      <FUNCNAME>Z_CA_REPLACE_TEXT_SYMBOLS</FUNCNAME>
-     <SHORT_TEXT>Common object: Replace text symbols/p&gt; &quot;! &lt;p&gt;The replacement of SAP script</SHORT_TEXT>
+     <SHORT_TEXT>CA-TBX: Replace text symbols</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>TEXT_MODULE_HEADER</PARAMETER>
@@ -56,12 +56,22 @@
       <RSFDO>
        <PARAMETER>ZCX_CA_TEXT_PREPARATION</PARAMETER>
        <KIND>X</KIND>
-       <STEXT>Common exception: While preparing text module</STEXT>
+       <STEXT>CA-TBX exception: While preparing text module</STEXT>
       </RSFDO>
      </DOCUMENTATION>
      <EXCEPTION_CLASSES>X</EXCEPTION_CLASSES>
     </item>
    </FUNCTIONS>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>E</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>R</ID>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

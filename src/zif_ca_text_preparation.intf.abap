@@ -101,7 +101,7 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! <p class="shorttext synchronized" lang="en">Replace variables and transform text into target format</p>
     "!
     "! <p>The parameters of this method are of structured types. To make sure that the user has to provide as less
-    "! as possible settings the <strong><em>flag fields expect 0 and 1 (use attribute BOOLEAN)!</em></strong> This
+    "! as possible settings <strong><em>all flags expect 0 and 1 (use attribute BOOLEAN)!</em></strong> This
     "! would not be possible using the values ABAP_FALSE and ABAP_TRUE.</p>
     "!
     "! <p>Furthermore <strong><em>take care</em></strong> that all the <strong><em>necessary data are accessible
@@ -118,7 +118,7 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "!
     "! <p>Parameters or values that are not relevant for the requested preparation type will be ignored.
     "! E. g., for RAW (= plain text) the parameter LINKS makes no sense to replace.<p>
-    "! <p>This method assumes that the <strong><em>{@link .METH:use_text_from}</em></strong> method has already
+    "! <p>This method requires that the method <strong><em>{@link .METH:use_text_from}</em></strong> has already
     "! been executed.</p>
     "! <p>
     "! @parameter control_settings     | <p class="shorttext synchronized" lang="en">Text preparation: Control + font settings for all types</p>
@@ -155,10 +155,10 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! @parameter tables               | <p class="shorttext synchronized" lang="en">Table values</p>
     "! <p>Each entry of this table represent one internal table with its controlling attributes. A lot of the
     "! attributes are only relevant for the transformation into HTML.</p>
-    "! <p><strong><em>HINT to parameter column SIGN_FOR_FLDS</em></strong>: Here you can use well known characters
+    "! <p><strong><em>HINT to parameter column SIGN_FOR_FLDS</em></strong>: Here you can use the well known characters
     "! 'I'nclude or 'E'xclude. But be aware when using 'E' that the named fields in T_OUTPUT_FLDS are only used
     "! to exclude them from the output and that it is not possible to give in an order for the rest of the fields.
-    "! In the case you have much more inclusive than exclusive fields and need a different order than use either
+    "! In the case you have much more inclusive than exclusive fields and need a different order then use either
     "! a specific definition for your needs or build a little routine that creates the list of needed fields.</p>
     "! <p>Furthermore you can pass an individual table header description. Which one you should provide depends
     "! on the output length of the column (mostly defined in the domain). For an output length lower equal 10

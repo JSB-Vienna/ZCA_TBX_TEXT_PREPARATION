@@ -145,7 +145,7 @@ CLASS zcl_ca_text_prep_table_html DEFINITION PUBLIC
         RETURNING
           VALUE(result) TYPE string.
 
-ENDCLASS.                     "zcl_ca_text_prep_table_html  DEFINITION
+ENDCLASS.
 
 
 
@@ -284,11 +284,8 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
           LOOP AT techn_row->components USING KEY primary_key
                                         REFERENCE INTO DATA(_component)
                                             WHERE name IN requested_columns.
-            output_field  = REF #( settings->t_output_flds[ fieldname = _component->name ] OPTIONAL ).
-            IF output_field IS BOUND.
-              row_component = _component->element.
-              create_n_attach_data_cell( ).
-            ENDIF.
+            row_component = _component->element.
+            create_n_attach_data_cell( ).
           ENDLOOP.
       ENDCASE.
 
@@ -518,6 +515,10 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Prepare table rows for output
     "-----------------------------------------------------------------*
+    IF NOT has_table_a_content( ).
+      RETURN.
+    ENDIF.
+
     " ! ! !  Don't change the order of these method calls  ! ! !  This is important for composition
 *    table_in_preparation->add_line_at_the_end( CONV #( html_tag-table-open ) ).     "<table>
     table_in_preparation->add_line_at_the_end(
@@ -600,6 +601,4 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     ENDIF.
   ENDMETHOD.                    "zif_ca_text_preparation_table~set_defaults_in_table_settings
 
-ENDCLASS.                     "zcl_ca_text_prep_table_html  IMPLEMENTATION
-
-
+ENDCLASS.

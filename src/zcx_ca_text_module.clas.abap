@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">CA-TBX exception: While preparing text module</p>
+"! <p class="shorttext synchronized" lang="en">CA-TBX exception: OBSOLETE!! Use ZCX_CA_TEXT_PRE.. instead!!</p>
 class ZCX_CA_TEXT_MODULE definition
   public
   inheriting from ZCX_CA_PARAM

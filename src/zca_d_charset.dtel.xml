@@ -4,7 +4,7 @@
   <asx:values>
    <DD04V>
     <ROLLNAME>ZCA_D_CHARSET</ROLLNAME>
-    <DDLANGUAGE>E</DDLANGUAGE>
+    <DDLANGUAGE>D</DDLANGUAGE>
     <DOMNAME>CPCSNAME</DOMNAME>
     <HEADLEN>23</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
@@ -18,6 +18,19 @@
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>
+   <I18N_LANGS>
+    <LANGU>E</LANGU>
+   </I18N_LANGS>
+   <DD04_TEXTS>
+    <item>
+     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDTEXT>CA-TBX: Char. set / Encoding (def. derived from SAP codepg)</DDTEXT>
+     <REPTEXT>Name of Character Set</REPTEXT>
+     <SCRTEXT_S>Char Set</SCRTEXT_S>
+     <SCRTEXT_M>Char. set</SCRTEXT_M>
+     <SCRTEXT_L>Name of Character Set</SCRTEXT_L>
+    </item>
+   </DD04_TEXTS>
   </asx:values>
  </asx:abap>
 </abapGit>

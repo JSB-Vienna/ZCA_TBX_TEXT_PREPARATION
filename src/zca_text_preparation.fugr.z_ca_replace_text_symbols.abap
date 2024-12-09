@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">Common object: Replace text symbols/p>
+"! <p class="shorttext synchronized" lang="en">CA-TBX: Replace text symbols</p>
 "!
 "! <p>The replacement of SAP script symbols must be executed in a function group or program because other objects,
 "! e. g. like classes, are not selectable in transaction SO10. Furthermore is it necessary to maintain the used
@@ -8,7 +8,7 @@
 "! @parameter text_module_header      | <p class="shorttext synchronized" lang="en">SAPscript: Text Header</p>
 "! @parameter fields_n_structures     | <p class="shorttext synchronized" lang="en">Field and structure values</p>
 "! @parameter text_module_lines       | <p class="shorttext synchronized" lang="en">Text module lines where the symbols should be replaced</p>
-"! @raising   zcx_ca_text_preparation | <p class="shorttext synchronized" lang="en">Common exception: While preparing text module</p>
+"! @raising   zcx_ca_text_preparation | <p class="shorttext synchronized" lang="en">CA-TBX exception: While preparing text module</p>
 FUNCTION z_ca_replace_text_symbols.
 *"----------------------------------------------------------------------
 *"*"Local Interface:

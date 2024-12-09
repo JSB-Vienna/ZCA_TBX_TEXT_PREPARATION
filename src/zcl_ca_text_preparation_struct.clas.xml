@@ -4,18 +4,34 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_CA_TEXT_PREPARATION_STRUCT</CLSNAME>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
     <DESCRIPT>CA-TBX: Text preparation: Techn. details of used structure</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <DESCRIPTIONS_CLASS>
+    <SEOCLASSTX>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation: Techn. details of used structure</DESCRIPT>
+    </SEOCLASSTX>
+   </DESCRIPTIONS_CLASS>
    <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_AS_ELEMENTARY_COMPONENT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Add row description as elementary component to collection</DESCRIPT>
+    </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>ADD_AS_ELEMENTARY_COMPONENT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Add row description as elementary component to collection</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>ADD_AS_STRUCTURED_COMPONENT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Add row description as structured component to collection</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>ADD_AS_STRUCTURED_COMPONENT</CMPNAME>
@@ -24,8 +40,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>BUFFER_TECHN_ROW_DESCRS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Technical descriptions of all structures</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>BUFFER_TECHN_ROW_DESCRS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Technical descriptions of all structures</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>COMPONENTS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Prepared structure components, is changeable for value ref</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>COMPONENTS</CMPNAME>
@@ -34,8 +60,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Constructor</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_DATA_REF_FOR_TABLE_ROW</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Create data reference for a single table row for ASSIGN</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CREATE_DATA_REF_FOR_TABLE_ROW</CMPNAME>
@@ -44,8 +80,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>DESCRIPTION</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Original techn. structure description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DESCRIPTION</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Original techn. structure description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Get instance</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>GET_INSTANCE</CMPNAME>
@@ -54,8 +100,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TABLE_ROW</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Dynamically created reference for data row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TABLE_ROW</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Dynamically created reference for data row</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TP_OPTIONS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Constants and value checks for text module preparation</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TP_OPTIONS</CMPNAME>
@@ -64,8 +120,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TY_S_STRUCTURE_COMPONENT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Combined structure of component and DDIC description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_S_STRUCTURE_COMPONENT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Combined structure of component and DDIC description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_S_TECHN_ROW_DESCR</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Technical description_of the structure</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TY_S_TECHN_ROW_DESCR</CMPNAME>
@@ -74,8 +140,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TY_T_STRUCTURE_COMPONENTS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Table with combined data description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_T_STRUCTURE_COMPONENTS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Table with combined data description</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TY_T_TECHN_ROW_DESCRS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Technical descriptions of all structures</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TY_T_TECHN_ROW_DESCRS</CMPNAME>
@@ -87,13 +163,31 @@
     <SEOSUBCOTX>
      <CMPNAME>ADD_AS_ELEMENTARY_COMPONENT</CMPNAME>
      <SCONAME>STRUCTURE_COMPONENT</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Structure component including description</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_AS_ELEMENTARY_COMPONENT</CMPNAME>
+     <SCONAME>STRUCTURE_COMPONENT</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Structure component including description</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>ADD_AS_STRUCTURED_COMPONENT</CMPNAME>
      <SCONAME>ROW_DESCRIPTION</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Technical row description</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>ADD_AS_STRUCTURED_COMPONENT</CMPNAME>
+     <SCONAME>ROW_DESCRIPTION</SCONAME>
      <LANGU>E</LANGU>
+     <DESCRIPT>Technical row description</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ROW_DESCRIPTION</SCONAME>
+     <LANGU>D</LANGU>
      <DESCRIPT>Technical row description</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
@@ -105,14 +199,32 @@
     <SEOSUBCOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
      <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>GET_INSTANCE</CMPNAME>
      <SCONAME>ROW_DESCRIPTION</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Technical row description</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>ROW_DESCRIPTION</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Technical row description</DESCRIPT>
+    </SEOSUBCOTX>
+    <SEOSUBCOTX>
+     <CMPNAME>GET_INSTANCE</CMPNAME>
+     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
      <CMPNAME>GET_INSTANCE</CMPNAME>

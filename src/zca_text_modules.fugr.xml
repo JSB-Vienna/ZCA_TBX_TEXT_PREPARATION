@@ -12,7 +12,7 @@
    <FUNCTIONS>
     <item>
      <FUNCNAME>Z_CA_REPLACE_SYMBOLS</FUNCNAME>
-     <SHORT_TEXT>Replace text symbols</SHORT_TEXT>
+     <SHORT_TEXT>CA-TBX: OBSOLETE!! Replace text symbols</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
        <PARAMETER>IS_THEAD</PARAMETER>
@@ -58,6 +58,16 @@
      <EXCEPTION_CLASSES>X</EXCEPTION_CLASSES>
     </item>
    </FUNCTIONS>
+   <I18N_TPOOL>
+    <item>
+     <LANGUAGE>E</LANGUAGE>
+     <TEXTPOOL>
+      <item>
+       <ID>R</ID>
+      </item>
+     </TEXTPOOL>
+    </item>
+   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>

@@ -4,18 +4,34 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_CA_TEXT_PREPARATION_ELEM</CLSNAME>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
     <DESCRIPT>CA-TBX: Text preparation: Data element / data cell</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
     <FIXPT>X</FIXPT>
     <UNICODE>X</UNICODE>
    </VSEOCLASS>
+   <DESCRIPTIONS_CLASS>
+    <SEOCLASSTX>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Text preparation: Data element / data cell</DESCRIPT>
+    </SEOCLASSTX>
+   </DESCRIPTIONS_CLASS>
    <DESCRIPTIONS>
+    <SEOCOMPOTX>
+     <CMPNAME>ALIGNMENT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Alignment of element -&gt; see method DETERMINE_ALIGNMENT</DESCRIPT>
+    </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>ALIGNMENT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Alignment of element -&gt; see method DETERMINE_ALIGNMENT</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CHECK_VALUE_N_DESCRIPTION</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CHECK_VALUE_N_DESCRIPTION</CMPNAME>
@@ -24,8 +40,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>COMPLETE_TECHNICAL_INFOS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Complete technical infos</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>COMPLETE_TECHNICAL_INFOS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Complete technical infos</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONSTRUCTOR</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Constructor</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CONSTRUCTOR</CMPNAME>
@@ -34,8 +60,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CONVERT_VALUE_TYPE_CONFORM</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Convert value from internal type into character format</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CONVERT_VALUE_TYPE_CONFORM</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Convert value from internal type into character format</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>CREATE_DATA_REFERENCE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Create data reference for a table column</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>CREATE_DATA_REFERENCE</CMPNAME>
@@ -44,8 +80,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>DDIC_INFO</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Technical information from DDIC</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DDIC_INFO</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Technical information from DDIC</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DESCRIPTION</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Technical description from RTTI</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>DESCRIPTION</CMPNAME>
@@ -54,8 +100,18 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>DETERMINE_ALIGNMENT</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Determine alignment depending on type and output length</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>DETERMINE_ALIGNMENT</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Determine alignment depending on type and output length</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>NAME_TO_VALUE</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Element name (defined in DDIC or passed by consumer)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>NAME_TO_VALUE</CMPNAME>
@@ -64,13 +120,28 @@
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>POSITION</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Column position</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>POSITION</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Column position</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TP_OPTIONS</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Constants and value checks for text module preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>TP_OPTIONS</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Constants and value checks for text module preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
+     <CMPNAME>VALUE_REF</CMPNAME>
+     <LANGU>D</LANGU>
+     <DESCRIPT>Either the passed value ref. or a created one for a column</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>VALUE_REF</CMPNAME>

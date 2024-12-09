@@ -1,5 +1,5 @@
-"! <p class="shorttext synchronized" lang="en">Common object: Replace text symbols/p>
-FUNCTION Z_CA_REPLACE_SYMBOLS.
+"! <p class="shorttext synchronized" lang="en">CA-TBX: OBSOLETE!! Replace text symbols/p>
+FUNCTION z_ca_replace_symbols.
 *"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING

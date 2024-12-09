@@ -70,7 +70,7 @@ CLASS zcl_ca_text_prepared_lines DEFINITION PUBLIC
 
       "! <p class="shorttext synchronized" lang="en">Set text, e. g. after additional manipulation</p>
       set_text
-        importing
+        IMPORTING
           text_lines TYPE zca_tt_text_lines.
 
 
@@ -130,7 +130,7 @@ CLASS zcl_ca_text_prepared_lines DEFINITION PUBLIC
 *   i n s t a n c e   m e t h o d s
     METHODS:
       "! <p class="shorttext synchronized" lang="en">Convert text lines into text module (SAP-Script)</p>
-      get_in_text_module_format
+      convert_in_text_module_format
         RETURNING
           VALUE(result) TYPE tline_tab,
 
@@ -218,6 +218,38 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
   ENDMETHOD.                    "contains_mail_html_command
 
 
+  METHOD convert_in_text_module_format.
+    "-----------------------------------------------------------------*
+    "   Convert passed text lines into SAP script format
+    "-----------------------------------------------------------------*
+    "No conversion necessary if the source text was a text module anyway
+    IF is_a_text_module( ).
+      RETURN.
+    ENDIF.
+
+    text_module_lines = VALUE #( FOR _text_line IN text_lines
+                                            ( tdformat = '*'
+                                              tdline   = _text_line-line ) ).
+    IF NOT contains_mail_html_command( ).
+      INSERT VALUE #( tdformat = '/:'
+                      tdline   = tp_options->techn_addition-mail_html_command ) INTO  text_module_lines
+                                                                                INDEX 1 ##no_text.
+    ENDIF.
+
+*    ELSE.
+*      CALL FUNCTION 'CONVERT_STREAM_TO_ITF_TEXT'
+*        EXPORTING
+*          language    = 'E'             "in English in any case
+*          lf          = abap_false      "because parameter TEXT_STREAM is used (not STREAM_LINES)
+*          iv_fw       = 132
+*          iv_lw       = 132
+*        TABLES
+*          text_stream = text_lines
+*          itf_text    = text_module_lines.
+*    ENDIF.
+  ENDMETHOD.                    "convert_in_text_module_format
+
+
   METHOD create_symbol_from_value_name.
     "-----------------------------------------------------------------*
     "   Create symbols for search (name bracketed in hashes)
@@ -253,8 +285,12 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Exchange table symbol by prepared table rows
     "-----------------------------------------------------------------*
-    "Delete line with table symbol in any case to avoid a symbol if
-    "no data were passed.
+    IF parent->control_settings-remove_unused_symbols EQ parent->boolean->false AND
+       prep_table_rows IS INITIAL.
+      RETURN.
+    ENDIF.
+
+    "Delete line with table symbol to avoid a symbol if no data were passed.
     DELETE text_lines INDEX matching_result-line.
 
     IF prep_table_rows IS NOT INITIAL.
@@ -263,34 +299,6 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
                                       INDEX matching_result-line.
     ENDIF.
   ENDMETHOD.                    "exchange_symbol_by_table_rows
-
-
-  METHOD get_in_text_module_format.
-    "-----------------------------------------------------------------*
-    "   Convert passed text lines into SAP script format
-    "-----------------------------------------------------------------*
-    "No conversion necessary if the source text was a text module anyway
-    IF is_a_text_module( ).
-      RETURN.
-    ENDIF.
-
-    IF contains_mail_html_command( ).
-      text_module_lines = VALUE #( FOR _text_line IN text_lines
-                                          ( tdformat = '*'
-                                            tdline   = _text_line-line ) ).
-
-    ELSE.
-      CALL FUNCTION 'CONVERT_STREAM_TO_ITF_TEXT'
-        EXPORTING
-          language    = 'E'             "in English in any case
-          lf          = abap_false      "because parameter TEXT_STREAM is used (not STREAM_LINES)
-          iv_fw       = 132
-          iv_lw       = 132
-        TABLES
-          text_stream = text_lines
-          itf_text    = text_module_lines.
-    ENDIF.
-  ENDMETHOD.                    "get_in_text_module_format
 
 
   METHOD get_text.
@@ -374,13 +382,17 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
     "-----------------------------------------------------------------*
     CASE parent->preparation_type.
       WHEN parent->tp_options->preparation_type-html.
-        "Add a line break to each raw line before preparation starts. To do it later, is much worse.
+        "Add a line break to each raw line before the preparation starts. To do it later, is much worse.
         text_lines = VALUE #(
             FOR _text_line_for_html IN text_module_lines
                   ( line = CONV #(       "If text line ends already with a line break <br> then keep it as is
                        COND #( WHEN _text_line_for_html-tdline CP |*{ tp_options->html_tag-line_break }|
                                  THEN _text_line_for_html-tdline
                                  ELSE |{ _text_line_for_html-tdline }{ tp_options->html_tag-line_break }| ) ) ) ).
+
+        IF contains_mail_html_command( ).
+          DELETE text_lines INDEX 1.    "This was necessary only for SAP script symbol replacements
+        ENDIF.
 
       WHEN parent->tp_options->preparation_type-raw.
         text_lines = VALUE #( FOR _text_line_for_raw IN text_module_lines
@@ -422,7 +434,7 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Replace SAP script symbols (= structured values)
     "-----------------------------------------------------------------*
-    get_in_text_module_format( ).
+    convert_in_text_module_format( ).
 
     CALL FUNCTION 'Z_CA_REPLACE_TEXT_SYMBOLS'
       EXPORTING

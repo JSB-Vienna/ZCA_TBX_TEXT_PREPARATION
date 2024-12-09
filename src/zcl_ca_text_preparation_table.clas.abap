@@ -163,16 +163,6 @@ CLASS zcl_ca_text_preparation_table DEFINITION PUBLIC
         RAISING
           zcx_ca_text_preparation,
 
-      "! <p class="shorttext synchronized" lang="en">Check whether the value is of type table and has content</p>
-      "!
-      "! @parameter result                  | <p class="shorttext synchronized" lang="en">X = Value is a table and has content</p>
-      "! @raising   zcx_ca_text_preparation | <p class="shorttext synchronized" lang="en">CA-TBX exception: While preparing text module</p>
-      is_a_table_with_content
-        RETURNING
-          VALUE(result) TYPE abap_boolean
-        RAISING
-          zcx_ca_text_preparation,
-
       "! <p class="shorttext synchronized" lang="en">Check whether the column header is requested</p>
       "!
       "! @parameter result | <p class="shorttext synchronized" lang="en">X = Column header is requested</p>
@@ -196,8 +186,11 @@ CLASS zcl_ca_text_preparation_table DEFINITION PUBLIC
 
       "! <p class="shorttext synchronized" lang="en">Check whether the value is of internal type table</p>
       "!
+      "! @parameter result                  | <p class="shorttext synchronized" lang="en">X = Value is a table</p>
       "! @raising   zcx_ca_text_preparation | <p class="shorttext synchronized" lang="en">CA-TBX exception: While preparing text module</p>
       is_value_a_table
+        RETURNING
+          VALUE(result) TYPE abap_boolean
         RAISING
           zcx_ca_text_preparation,
 
@@ -207,6 +200,13 @@ CLASS zcl_ca_text_preparation_table DEFINITION PUBLIC
       is_value_bound
         RAISING
           zcx_ca_text_preparation,
+
+      "! <p class="shorttext synchronized" lang="en">Has the table a content?</p>
+      "!
+      "! @parameter result | <p class="shorttext synchronized" lang="en">X = Table has content</p>
+      has_table_a_content
+        RETURNING
+          VALUE(result) TYPE abap_boolean,
 
       "! <p class="shorttext synchronized" lang="en">Prepare cell value for output</p>
       "!
@@ -260,7 +260,7 @@ CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
 
     "Checks
     is_name_set( ).
-    is_a_table_with_content( ).
+    is_value_a_table( ).
 
     "Technical preparations
     get_row_description( ).
@@ -345,39 +345,6 @@ CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
   ENDMETHOD.                    "get_row_description
 
 
-  METHOD is_a_table_with_content.
-    "-----------------------------------------------------------------*
-    "   Check whether the value is of type table and has content
-    "-----------------------------------------------------------------*
-    TRY.
-        result = abap_false.
-
-        is_value_bound( ).
-        techn_table ?= tp_options->get_technical_description( settings->value ).
-        is_value_a_table( ).
-
-        "Dereference table object and check if it has data
-        ASSIGN settings->value->* TO FIELD-SYMBOL(<table_data>).
-        ASSERT sy-subrc EQ 0.
-
-        IF <table_data> IS INITIAL.
-          RETURN.
-        ENDIF.
-
-        result = abap_true.
-
-      CATCH cx_sy_move_cast_error INTO DATA(_catched).
-        DATA(_exception) = CAST zcx_ca_text_preparation(
-                                      zcx_ca_error=>create_exception(
-                                                   iv_excp_cls = zcx_ca_text_preparation=>c_zcx_ca_text_preparation
-                                                   ix_error    = _catched ) ) ##no_text.
-        IF _exception IS BOUND.
-          RAISE EXCEPTION _exception.
-        ENDIF.
-    ENDTRY.
-  ENDMETHOD.                    "is_a_table_with_content
-
-
   METHOD is_column_header_requested.
     "-----------------------------------------------------------------*
     "   Check whether the column header is requested
@@ -413,13 +380,24 @@ CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Check whether the value is of internal type table
     "-----------------------------------------------------------------*
-    IF techn_table->kind NE techn_table->kind_table.
-      "Value to table parameter &1 is not a table
-      RAISE EXCEPTION TYPE zcx_ca_text_preparation
-        EXPORTING
-          textid   = zcx_ca_text_preparation=>not_a_table
-          mv_msgv1 = CONV #( settings->name ).
-    ENDIF.
+    TRY.
+        result = abap_false.
+        is_value_bound( ).
+
+        IF techn_table IS NOT BOUND.
+          techn_table ?= tp_options->get_technical_description( settings->value ).
+        ENDIF.
+
+        result = abap_true.
+
+      CATCH cx_sy_move_cast_error INTO DATA(_catched).
+        DATA(_exception) = CAST zcx_ca_text_preparation( zcx_ca_error=>create_exception(
+                                                   iv_excp_cls = zcx_ca_text_preparation=>c_zcx_ca_text_preparation
+                                                   ix_error    = _catched ) ) ##no_text.
+        IF _exception IS BOUND.
+          RAISE EXCEPTION _exception.
+        ENDIF.
+    ENDTRY.
   ENDMETHOD.                    "is_value_a_table
 
 
@@ -436,6 +414,24 @@ CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
           mv_msgv1 = 'VALUE is not bound' ##no_text.
     ENDIF.
   ENDMETHOD.                    "is_value_bound
+
+
+  METHOD has_table_a_content.
+    "-----------------------------------------------------------------*
+    "   Has the table a content?
+    "-----------------------------------------------------------------*
+    result = abap_false.
+
+    "Dereference table object and check if it has data
+    ASSIGN settings->value->* TO FIELD-SYMBOL(<table_data>).
+    ASSERT sy-subrc EQ 0.
+
+    IF <table_data> IS INITIAL.
+      RETURN.
+    ENDIF.
+
+    result = abap_true.
+  ENDMETHOD.                    "has_table_a_content
 
 
   METHOD prepare_order_of_req_columns.

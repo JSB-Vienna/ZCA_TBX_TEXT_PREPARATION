@@ -7,4 +7,5 @@
 
 * t a b l e s   /   s t r u c t u r e s   for selection field definition
 TABLES:
+  zhcm_s_mgm_email_data,      "#EC NEEDED
   syst.                       "#EC NEEDED
