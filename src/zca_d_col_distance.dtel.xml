@@ -4,7 +4,7 @@
   <asx:values>
    <DD04V>
     <ROLLNAME>ZCA_D_COL_DISTANCE</ROLLNAME>
-    <DDLANGUAGE>D</DDLANGUAGE>
+    <DDLANGUAGE>E</DDLANGUAGE>
     <DOMNAME>INT1</DOMNAME>
     <HEADLEN>10</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
@@ -19,11 +19,11 @@
     <REFKIND>D</REFKIND>
    </DD04V>
    <I18N_LANGS>
-    <LANGU>E</LANGU>
+    <LANGU>D</LANGU>
    </I18N_LANGS>
    <DD04_TEXTS>
     <item>
-     <DDLANGUAGE>E</DDLANGUAGE>
+     <DDLANGUAGE>D</DDLANGUAGE>
      <DDTEXT>CA-TBX: Number of spaces between two column (default=1)</DDTEXT>
      <REPTEXT>Dist. col.</REPTEXT>
      <SCRTEXT_S>Dist. col.</SCRTEXT_S>

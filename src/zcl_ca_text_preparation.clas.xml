@@ -4,7 +4,7 @@
   <asx:values>
    <VSEOCLASS>
     <CLSNAME>ZCL_CA_TEXT_PREPARATION</CLSNAME>
-    <LANGU>D</LANGU>
+    <LANGU>E</LANGU>
     <DESCRIPT>CA-TBX: Preparation of a text</DESCRIPT>
     <STATE>1</STATE>
     <CLSCCINCL>X</CLSCCINCL>
@@ -21,19 +21,19 @@
     <item>
      <ID>I</ID>
      <KEY>MST</KEY>
-     <ENTRY>* * * * *   M U S T E R   * * * * *       aus SAP-System</ENTRY>
+     <ENTRY>* * * * *   P A T T E R N   * * * * *       from SAP system</ENTRY>
      <LENGTH>100</LENGTH>
     </item>
     <item>
      <ID>I</ID>
      <KEY>TBL</KEY>
-     <ENTRY>Tabelle</ENTRY>
+     <ENTRY>Table</ENTRY>
      <LENGTH>50</LENGTH>
     </item>
    </TPOOL>
    <I18N_TPOOL>
     <item>
-     <LANGUAGE>E</LANGUAGE>
+     <LANGUAGE>D</LANGUAGE>
      <TEXTPOOL>
       <item>
        <ID>I</ID>
@@ -44,13 +44,13 @@
       <item>
        <ID>I</ID>
        <KEY>MST</KEY>
-       <ENTRY>* * * * *   P A T T E R N   * * * * *       from SAP system</ENTRY>
+       <ENTRY>* * * * *   M U S T E R   * * * * *       aus SAP-System</ENTRY>
        <LENGTH>100</LENGTH>
       </item>
       <item>
        <ID>I</ID>
        <KEY>TBL</KEY>
-       <ENTRY>Table</ENTRY>
+       <ENTRY>Tabelle</ENTRY>
        <LENGTH>50</LENGTH>
       </item>
      </TEXTPOOL>
@@ -58,7 +58,7 @@
    </I18N_TPOOL>
    <DESCRIPTIONS_CLASS>
     <SEOCLASSTX>
-     <LANGU>E</LANGU>
+     <LANGU>D</LANGU>
      <DESCRIPT>CA-TBX: Preparation of a text</DESCRIPT>
     </SEOCLASSTX>
    </DESCRIPTIONS_CLASS>

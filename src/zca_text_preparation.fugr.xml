@@ -62,16 +62,6 @@
      <EXCEPTION_CLASSES>X</EXCEPTION_CLASSES>
     </item>
    </FUNCTIONS>
-   <I18N_TPOOL>
-    <item>
-     <LANGUAGE>E</LANGUAGE>
-     <TEXTPOOL>
-      <item>
-       <ID>R</ID>
-      </item>
-     </TEXTPOOL>
-    </item>
-   </I18N_TPOOL>
   </asx:values>
  </asx:abap>
 </abapGit>
