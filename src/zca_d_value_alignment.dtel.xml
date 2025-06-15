@@ -3,18 +3,18 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD04V>
-    <ROLLNAME>ZCA_D_TABLE_DESC_ALIGNMENT</ROLLNAME>
+    <ROLLNAME>ZCA_D_VALUE_ALIGNMENT</ROLLNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DOMNAME>ZCA_VALUE_ALIGNMENT</DOMNAME>
     <HEADLEN>10</HEADLEN>
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>CA-TBX: Alignment of table description (caption) (default=9)</DDTEXT>
-    <REPTEXT>TabDescAlm</REPTEXT>
-    <SCRTEXT_S>TabDescAlm</SCRTEXT_S>
-    <SCRTEXT_M>Table descr. alignm.</SCRTEXT_M>
-    <SCRTEXT_L>Table description alignmemt</SCRTEXT_L>
+    <DDTEXT>CA-TBX: Alignment of a value (default = 0 = left)</DDTEXT>
+    <REPTEXT>ValAlignm</REPTEXT>
+    <SCRTEXT_S>ValAlignm</SCRTEXT_S>
+    <SCRTEXT_M>Value alignmemt</SCRTEXT_M>
+    <SCRTEXT_L>Value alignmemt</SCRTEXT_L>
     <DTELMASTER>E</DTELMASTER>
     <REFKIND>D</REFKIND>
    </DD04V>

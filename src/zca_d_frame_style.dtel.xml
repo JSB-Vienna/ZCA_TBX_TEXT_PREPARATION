@@ -10,7 +10,7 @@
     <SCRLEN1>10</SCRLEN1>
     <SCRLEN2>20</SCRLEN2>
     <SCRLEN3>40</SCRLEN3>
-    <DDTEXT>CA-TBX: Frame style (use const. C_FRAMESTYLE_*, default=9)</DDTEXT>
+    <DDTEXT>CA-TBX: Frame style (use const. HTML-FRAME_STYLE-*, def=0)</DDTEXT>
     <REPTEXT>FSt</REPTEXT>
     <SCRTEXT_S>FSt</SCRTEXT_S>
     <SCRTEXT_M>Frame Style</SCRTEXT_M>

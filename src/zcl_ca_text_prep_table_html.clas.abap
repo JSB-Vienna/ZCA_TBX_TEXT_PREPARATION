@@ -23,51 +23,6 @@ CLASS zcl_ca_text_prep_table_html DEFINITION PUBLIC
 
 * P R O T E C T E D   S E C T I O N
   PROTECTED SECTION.
-*   c o n s t a n t s
-    CONSTANTS:
-      "! <p class="shorttext synchronized" lang="en">CSS elements</p>
-      BEGIN OF css_element,
-        BEGIN OF border,
-          base     TYPE its_tag VALUE '{ border:'  ##no_text,
-          collapse TYPE its_tag VALUE 'border-collapse: collapse }'  ##no_text,
-        END   OF border,
-      END   OF css_element,
-
-      "! <p class="shorttext synchronized" lang="en">HTML tags</p>
-      BEGIN OF html_tag,
-        BEGIN OF table,
-          open  TYPE its_tag VALUE '<table>'  ##no_text,
-          close TYPE its_tag VALUE '</table>'  ##no_text,
-        END   OF table,
-
-        BEGIN OF table_header,
-          open  TYPE its_tag VALUE '<thead>'  ##no_text,
-          close TYPE its_tag VALUE '</thead>'  ##no_text,
-        END   OF table_header,
-
-        BEGIN OF header_column,
-          open  TYPE its_tag VALUE '<th>'  ##no_text,
-          close TYPE its_tag VALUE '</th>'  ##no_text,
-        END   OF header_column,
-
-        BEGIN OF table_body,
-          open  TYPE its_tag VALUE '<tbody>'  ##no_text,
-          close TYPE its_tag VALUE '</tbody>'  ##no_text,
-        END   OF table_body,
-
-        BEGIN OF table_row,
-          open  TYPE its_tag VALUE '<tr>'  ##no_text,
-          close TYPE its_tag VALUE '</tr>'  ##no_text,
-        END   OF table_row,
-
-        BEGIN OF data_column,
-          open  TYPE its_tag VALUE '<td>'  ##no_text,
-          close TYPE its_tag VALUE '</td>'  ##no_text,
-        END   OF data_column,
-
-        line_break TYPE its_tag VALUE '<br>'  ##no_text,
-      END   OF html_tag.
-
 *   i n s t a n c e   m e t h o d s
     METHODS:
       add_table_header REDEFINITION,
@@ -155,12 +110,11 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Add data rows of table (body) to table of prepared rows
     "-----------------------------------------------------------------*
-*    table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_body-open ) ).      "<tbody>
     table_in_preparation->add_line_at_the_end( condense( |<tbody style="{ get_font_style_for_table( ) }">| ) ) ##no_text.
 
     create_n_add_table_body( ).
 
-    table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_body-close ) ).      "</tbody>
+    table_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-table_body-close ) ).      "</tbody>
   ENDMETHOD.                    "add_table_body
 
 
@@ -196,12 +150,11 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
       RETURN.
     ENDIF.
 
-*    table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_header-open ) ).      "<thead>
     table_in_preparation->add_line_at_the_end( condense( |<thead style="{ get_font_style_for_table( ) }">| ) ) ##no_text.
 
     create_n_add_column_header( ).
 
-    table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_header-close ) ).     "</thead>
+    table_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-table_header-close ) ).     "</thead>
   ENDMETHOD.                    "add_table_header
 
 
@@ -219,8 +172,7 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "   Create column header
     "-----------------------------------------------------------------*
     "Initialize line in preparation with row tag
-    table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_row-open ) ).     "<tr>
-*    table_in_preparation->add_line_at_the_end( condense( |<tr style="{ get_style_for_border_n_padding( ) }">| ) ) ##no_text.
+    table_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-table_row-open ) ).     "<tr>
 
     CASE settings->sign_for_flds.
       WHEN sel_options->sign-incl.
@@ -244,7 +196,7 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
         ENDLOOP.
     ENDCASE.
 
-    table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_row-close ) ).   "</tr>
+    table_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-table_row-close ) ).   "</tr>
   ENDMETHOD.                    "create_n_add_column_header
 
 
@@ -267,8 +219,7 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
 
     LOOP AT <table_data> INTO <table_row>.
       "Initialize prepared row with row tag
-      table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_row-open ) ).     "<tr>
-*      table_in_preparation->add_line_at_the_end( condense( |<tr style="{ get_style_for_border_n_padding( ) }">| ) ) ##no_text.
+      table_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-table_row-open ) ).     "<tr>
 
       CASE settings->sign_for_flds.
         WHEN sel_options->sign-incl.
@@ -281,6 +232,7 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
           ENDLOOP.
 
         WHEN sel_options->sign-excl.
+          "In case of the field exclusion the OUTPUT_FIELD can not determined as no explicit definition can be made
           LOOP AT techn_row->components USING KEY primary_key
                                         REFERENCE INTO DATA(_component)
                                             WHERE name IN requested_columns.
@@ -289,7 +241,7 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
           ENDLOOP.
       ENDCASE.
 
-      table_in_preparation->add_line_at_the_end( CONV #( html_tag-table_row-close ) ).   "</tr>
+      table_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-table_row-close ) ).   "</tr>
     ENDLOOP.
   ENDMETHOD.                    "create_n_add_table_body
 
@@ -305,16 +257,18 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     DATA(_field_label) = determine_field_label( ).
 
     IF _field_label IS INITIAL.
-      _column_header_label = condense( |{ html_tag-header_column-open }{ html_tag-header_column-close }| ).
+      _column_header_label =
+              condense( |{ cvc_tp->html_tag-header_column-open }{ cvc_tp->html_tag-header_column-close }| ).
 
     ELSE.
-      "Alignment of component is determined during instance creation of technical structure infos. Numeric
+      "Alignment of a component is determined during instance creation of technical structure infos. Numeric
       "values are aligned always right, output length lower equal 10 are center aligned, the rest to the left.
       "Adding the cell alignment is always necessary because no CSS can be used and without this addition no
-      "frame is visible.
+      "frame is visible. The determined alignment can be overruled by respective column description field, e. g.
+      "to right-align a character column that contain only amount values.
       _column_header_label = condense( |<th style="{ get_style_for_border_n_padding( ) }; | &
                                        |{ get_style_for_cell_alignment( row_component->alignment ) }">| &
-                                       |{ _field_label }{ html_tag-header_column-close }| ).
+                                       |{ _field_label }{ cvc_tp->html_tag-header_column-close }| ).
     ENDIF.
 
     table_in_preparation->add_line_at_the_end( _column_header_label ).
@@ -332,7 +286,7 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     DATA(_cell_value) = prepare_cell_value_for_output( ).
 
     IF _cell_value IS INITIAL.
-      _prepared_value = condense( |{ html_tag-data_column-open }{ html_tag-data_column-close }| ).
+      _prepared_value = condense( |{ cvc_tp->html_tag-data_column-open }{ cvc_tp->html_tag-data_column-close }| ).
 
     ELSE.
       "Alignment of component is determined during instance creation of technical structure infos. Numeric
@@ -341,7 +295,7 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
       "frame is visible.
       _prepared_value = condense( |<td style="{ get_style_for_border_n_padding( ) }; | &
                                   |{ get_style_for_cell_alignment( row_component->alignment ) }">| &
-                                  |{ _cell_value }{ html_tag-data_column-close }| ).
+                                  |{ _cell_value }{ cvc_tp->html_tag-data_column-close }| ).
     ENDIF.
 
     table_in_preparation->add_line_at_the_end( _prepared_value ).
@@ -367,7 +321,7 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "Result example:
     "border-collapse: collapse; border:medium solid #F3C431; padding:0.5rem 0.25rem
     result = |border-collapse:collapse; border:{ translate_frame_width_2_html( settings->frame_width ) } | &
-             |{ translate_frame_style_2_html( CONV #( settings->with_frame ) ) } { settings->frame_color }; | &
+             |{ translate_frame_style_2_html( settings->with_frame ) } { settings->frame_color }; | &
              "                 upper and lower          left and right
              |padding:{ settings->v_padding }rem { settings->h_padding }rem| ##no_text.
   ENDMETHOD.                    "get_style_for_border_n_padding
@@ -378,8 +332,10 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "   Enhance style for the cell tags 'td' + 'th' to align the value
     "-----------------------------------------------------------------*
     "Result example:
-    "text-align:right
-    result = |text-align:{ translate_alignment_2_html( alignment ) }| ##no_text.
+    "text-align:right                                                is alignment overruled??
+    result = |text-align:{ translate_alignment_2_html( COND #( WHEN output_field->alignment IS NOT INITIAL
+                                                                 THEN output_field->alignment
+                                                                 ELSE alignment ) ) }| ##no_text.
   ENDMETHOD.                    "get_style_for_cell_alignment
 
 
@@ -389,46 +345,59 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "Local data definitions
     DATA:
-      _no_currency        TYPE waers VALUE space,
-      _no_unit_of_measure TYPE meins VALUE space.
+      _no_currency        TYPE waers  VALUE space,
+      _no_unit_of_measure TYPE meins  VALUE space,
+      _no_link_name       TYPE text80 VALUE space.
 
     FIELD-SYMBOLS:
       <table_row>       TYPE data,
       <currency>        TYPE waers,
-      <unit_of_measure> TYPE meins.
+      <unit_of_measure> TYPE meins,
+      <link_name>       TYPE csequence.
 
     TRY.
         "Type conform row / workarea was already created during construction of this instance
         ASSIGN techn_row->table_row->* TO <table_row>.
         ASSERT sy-subrc EQ 0.
 
-        IF output_field                        IS BOUND AND
-           output_field->fld_name_currency_key IS NOT INITIAL.
-          ASSIGN COMPONENT output_field->fld_name_currency_key OF STRUCTURE <table_row> TO <currency>.
-          ASSERT sy-subrc EQ 0.
-          ASSIGN _no_unit_of_measure TO <unit_of_measure>.
-
-        ELSEIF output_field                    IS BOUND AND
-               output_field->fld_name_unit_key IS NOT INITIAL.
-          ASSIGN COMPONENT output_field->fld_name_unit_key OF STRUCTURE <table_row> TO <unit_of_measure>.
-          ASSERT sy-subrc EQ 0.
-          ASSIGN _no_currency TO <currency>.
-
-        ELSE.
+        "OUTPUT_FIELD is not bound when the field EXclusion is used (T_OUTPUT_FLDS-SIGN_FOR_FLDS = 'E')
+        IF output_field IS NOT BOUND OR
+           output_field->s_reference_fields IS INITIAL.   "= Currency + UoM + link are unused
           ASSIGN: _no_currency        TO <currency>,
-                  _no_unit_of_measure TO <unit_of_measure>.
+                  _no_unit_of_measure TO <unit_of_measure>,
+                  _no_link_name       TO <link_name>.
           ASSERT sy-subrc EQ 0.
+
+        ELSEIF output_field->fld_name_currency_key IS NOT INITIAL.
+          ASSIGN COMPONENT output_field->fld_name_currency_key OF STRUCTURE <table_row> TO <currency>.
+          IF sy-subrc NE 0.
+            ASSIGN _no_currency TO <currency>.
+          ENDIF.
+
+        ELSEIF output_field->fld_name_unit_key IS NOT INITIAL.
+          ASSIGN COMPONENT output_field->fld_name_unit_key OF STRUCTURE <table_row> TO <unit_of_measure>.
+          IF sy-subrc NE 0.
+            ASSIGN _no_unit_of_measure TO <unit_of_measure>.
+          ENDIF.
+
+        ELSEIF output_field->as_link EQ abap_true.
+          ASSIGN COMPONENT output_field->fld_link_name OF STRUCTURE <table_row> TO <link_name>.
+          IF sy-subrc NE 0.
+            ASSIGN _no_link_name TO <link_name>.
+          ENDIF.
         ENDIF.
 
         "The of the row component is already available in the ROW_COMPONENT and must not be passed
-        result = row_component->convert_value_type_conform( currency        = <currency>
-                                                            unit_of_measure = <unit_of_measure> ).
+        result = switch #( output_field->as_link
+                   when abap_true   then row_component->convert_value_type_conform(
+                                                                       currency        = <currency>
+                                                                       unit_of_measure = <unit_of_measure> )
+                   when abap_false  then row_component->compose_link( <link_name> ) ).
 
       CATCH zcx_ca_error INTO DATA(lx_catched).
-        DATA(lx_error) = CAST zcx_ca_text_preparation(
-                                     zcx_ca_error=>create_exception(
-                                                     iv_excp_cls = zcx_ca_text_preparation=>c_zcx_ca_text_preparation
-                                                     ix_error    = lx_catched ) ).
+        DATA(lx_error) = CAST zcx_ca_text_preparation( zcx_ca_error=>create_exception(
+                                           iv_excp_cls = zcx_ca_text_preparation=>c_zcx_ca_text_preparation
+                                           ix_error    = lx_catched ) ).
         IF lx_error IS BOUND.
           RAISE EXCEPTION lx_error.
         ENDIF.
@@ -441,9 +410,9 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "   Set alternative font family in case the requested font isn't installed
     "-----------------------------------------------------------------*
     result = SWITCH #( control_settings->fonttype_prop
-               WHEN tp_options->html-defaults-font_type-proportional
+               WHEN cvc_tp->html-defaults-font_type-proportional
                  THEN `sans-serif`
-               WHEN tp_options->html-defaults-font_type-monospace
+               WHEN cvc_tp->html-defaults-font_type-monospace
                  THEN `monospace` ) ##no_text.
 
   ENDMETHOD.                    "set_alternative_font_family
@@ -480,9 +449,9 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "   Translate alignment code into HTML key word
     "-----------------------------------------------------------------*
     result = SWITCH #( alignment
-               WHEN tp_options->html-alignment-center THEN `center`
-               WHEN tp_options->html-alignment-left   THEN `left`
-               WHEN tp_options->html-alignment-right  THEN `right`
+               WHEN cvc_tp->html-alignment-left   THEN `left`
+               WHEN cvc_tp->html-alignment-center THEN `center`
+               WHEN cvc_tp->html-alignment-right  THEN `right`
                  ELSE `inherit` ) ##no_text.
   ENDMETHOD.                    "translate_alignment_2_html
 
@@ -492,11 +461,14 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "   Translate alignment code into HTML key word
     "-----------------------------------------------------------------*
     result = SWITCH #( frame_style
-               WHEN tp_options->html-frame_style-none  THEN `none`
-               WHEN tp_options->html-frame_style-solid THEN `solid`
-               WHEN tp_options->html-frame_style-ridge THEN `ridge`
+               WHEN cvc_tp->html-frame_style-none   THEN `none`
+               WHEN cvc_tp->html-frame_style-solid  THEN `solid`
+               WHEN cvc_tp->html-frame_style-dashed THEN `dashed`
+               WHEN cvc_tp->html-frame_style-dotted THEN `dotted`
+               WHEN cvc_tp->html-frame_style-ridge  THEN `ridge`
                  ELSE `inherit` ) ##no_text.
   ENDMETHOD.                    "translate_alignm_code_2_html
+
 
 
   METHOD translate_frame_width_2_html.
@@ -504,9 +476,10 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "   Translate alignment code into HTML key word
     "-----------------------------------------------------------------*
     result = SWITCH #( frame_width
-               WHEN tp_options->html-frame_width-thin   THEN `thin`
-               WHEN tp_options->html-frame_width-medium THEN `medium`
-               WHEN tp_options->html-frame_width-thick  THEN `thick`
+               WHEN cvc_tp->html-frame_width-initial THEN `initial`
+               WHEN cvc_tp->html-frame_width-thin    THEN `thin`
+               WHEN cvc_tp->html-frame_width-medium  THEN `medium`
+               WHEN cvc_tp->html-frame_width-thick   THEN `thick`
                  ELSE `inherit` ) ##no_text.
   ENDMETHOD.                    "translate_alignm_code_2_html
 
@@ -520,16 +493,14 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     ENDIF.
 
     " ! ! !  Don't change the order of these method calls  ! ! !  This is important for composition
-*    table_in_preparation->add_line_at_the_end( CONV #( html_tag-table-open ) ).     "<table>
     table_in_preparation->add_line_at_the_end(
-*           condense( |<table style="{ get_style_for_border_n_padding( ) }">| ) ) ##no_text.
            condense( |<table style="{ get_style_for_border_n_padding( ) }; { get_font_style_for_table( ) }">| ) ) ##no_text.
 
     add_table_caption( ).
     add_table_header( ).
     add_table_body( ).
 
-    table_in_preparation->add_line_at_the_end( CONV #( html_tag-table-close ) ).     "</table>
+    table_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-table-close ) ).     "</table>
     result = table_in_preparation->text_lines.
   ENDMETHOD.                    "zif_ca_text_preparation_table~prepare_table_rows
 
@@ -554,21 +525,22 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
 
     CASE settings->with_frame.
       WHEN boolean->true.
-        IF settings->frame_width IS INITIAL.
-          settings->frame_width = tp_options->html-frame_width-thin.
+        IF settings->frame_style IS INITIAL.
+          settings->frame_style = cvc_tp->html-frame_style-none.
         ELSE.
-          tp_options->is_frame_width_valid( settings->frame_width ).
+          cvc_tp->is_frame_style_valid( settings->frame_style ).
         ENDIF.
 
-        IF settings->frame_style IS INITIAL.
-          settings->frame_style = tp_options->html-frame_style-solid.
+        IF settings->frame_width IS INITIAL OR
+           settings->frame_style EQ cvc_tp->html-frame_style-none.
+          settings->frame_width = cvc_tp->html-frame_width-initial.
         ELSE.
-          tp_options->is_frame_style_valid( settings->frame_style ).
+          cvc_tp->is_frame_width_valid( settings->frame_width ).
         ENDIF.
 
         IF settings->frame_color IS INITIAL.
           IF control_settings->without_head_body EQ boolean->true.     "Is e. g. for enhancement in Fiori Inbox
-            settings->frame_color = tp_options->html-frame_width-inherit.
+            settings->frame_color = cvc_tp->html-frame_width-inherit.
           ELSE.
             settings->frame_color = 'black' ##no_text.      "Is e. g. for a mail
           ENDIF.
@@ -576,13 +548,13 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
 
       WHEN boolean->false.
         IF settings->frame_width IS INITIAL.
-          settings->frame_width = tp_options->html-frame_width-inherit.
+          settings->frame_width = cvc_tp->html-frame_width-inherit.
         ENDIF.
         IF settings->frame_style IS INITIAL.
-          settings->frame_style = tp_options->html-frame_style-inherit.
+          settings->frame_style = cvc_tp->html-frame_style-inherit.
         ENDIF.
         IF settings->frame_color IS INITIAL.
-          settings->frame_color = tp_options->html-frame_width-inherit.
+          settings->frame_color = cvc_tp->html-frame_width-inherit.
         ENDIF.
     ENDCASE.
 
@@ -595,9 +567,9 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     ENDIF.
 
     IF settings->table_desc_alignm IS INITIAL.
-      settings->table_desc_alignm = tp_options->html-alignment-center.
+      settings->table_desc_alignm = cvc_tp->html-alignment-center.
     ELSE.
-      tp_options->is_alignment_valid( settings->table_desc_alignm ).
+      cvc_tp->is_alignment_valid( settings->table_desc_alignm ).
     ENDIF.
   ENDMETHOD.                    "zif_ca_text_preparation_table~set_defaults_in_table_settings
 

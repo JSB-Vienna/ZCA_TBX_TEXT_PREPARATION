@@ -40,6 +40,13 @@ CLASS zcl_ca_text_preparation_elem DEFINITION PUBLIC
         RAISING
           zcx_ca_text_preparation,
 
+      "! <p class="shorttext synchronized" lang="en">Compose link</p>
+      compose_link
+        IMPORTING
+          link_name     TYPE csequence OPTIONAL
+        RETURNING
+          VALUE(result) TYPE so_text255,
+
       "! <p class="shorttext synchronized" lang="en">Convert value from internal type into character format</p>
       convert_value_type_conform
         IMPORTING
@@ -56,8 +63,8 @@ CLASS zcl_ca_text_preparation_elem DEFINITION PUBLIC
 *   i n s t a n c e   a t t r i b u t e s
     DATA:
 *     o b j e c t   r e f e r e n c e s
-      "! <p class="shorttext synchronized" lang="en">Constants and value checks for text module preparation</p>
-      tp_options        TYPE REF TO zcl_ca_c_text_preparation.
+      "! <p class="shorttext synchronized" lang="en">CA-TBX: Constants + value checks for text preparation</p>
+      cvc_tp          TYPE REF TO zcl_ca_c_text_preparation.
 
 *   i n s t a n c e   m e t h o d s
     METHODS:
@@ -92,7 +99,7 @@ CLASS zcl_ca_text_preparation_elem IMPLEMENTATION.
     "-----------------------------------------------------------------*
     TRY.
         IF value_ref IS BOUND.
-          me->description ?= tp_options->get_technical_description( value_ref ).
+          me->description ?= cvc_tp->get_technical_description( value_ref ).
           me->value_ref = value_ref.
 
         ELSEIF description IS BOUND.
@@ -147,7 +154,7 @@ CLASS zcl_ca_text_preparation_elem IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Constructor
     "-----------------------------------------------------------------*
-    tp_options = zcl_ca_c_text_preparation=>get_instance( ).
+    cvc_tp = zcl_ca_c_text_preparation=>get_instance( ).
 
     check_value_n_description( value_ref   = value_ref
                                description = description ).
@@ -193,21 +200,28 @@ CLASS zcl_ca_text_preparation_elem IMPLEMENTATION.
   ENDMETHOD.                    "create_data_reference
 
 
+  METHOD compose_link.
+    "-----------------------------------------------------------------*
+    "   Compose link
+    "-----------------------------------------------------------------*
+    DATA(_link_name) = COND string( WHEN link_name IS INITIAL
+                         THEN 'No name to link given'(nng)
+                         ELSE link_name ).
+
+    result = |{ replace( val  = cvc_tp->html_tag-link-open
+                         sub  = '&1'
+                         with = value_ref->* ) }{ _link_name }{ cvc_tp->html_tag-link-close }|.
+  ENDMETHOD.                    "compose_link
+
+
   METHOD convert_value_type_conform.
     "-----------------------------------------------------------------*
     "   Convert value from internal type into character format
     "-----------------------------------------------------------------*
-    "Local data definitions
-    FIELD-SYMBOLS:
-      <value>              TYPE data.
-
-    "Assign inbound value for move
-    ASSIGN value_ref->* TO <value>.
-
     "Convert value into output format
     zcl_ca_conv=>internal_2_external(
                                 EXPORTING
-                                  internal_value  = <value>
+                                  internal_value  = value_ref->*
                                   currency        = currency
                                   unit_of_measure = unit_of_measure
                                   without_seconds = abap_false
@@ -226,12 +240,12 @@ CLASS zcl_ca_text_preparation_elem IMPLEMENTATION.
                              description->type_kind EQ description->typekind_int1   OR
                              description->type_kind EQ description->typekind_int2   OR
                              description->type_kind EQ description->typekind_int8
-                          THEN tp_options->html-alignment-right
+                          THEN cvc_tp->html-alignment-right
 
                         WHEN description->output_length LE 10
-                          THEN tp_options->html-alignment-center
+                          THEN cvc_tp->html-alignment-center
 
-                        ELSE tp_options->html-alignment-left ).
+                        ELSE cvc_tp->html-alignment-left ).
   ENDMETHOD.                    "determine_alignment
 
 ENDCLASS.                     "zcl_ca_text_preparation_elem  IMPLEMENTATION

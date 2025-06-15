@@ -38,6 +38,11 @@
      <DESCRIPT>Description</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>CVC_TP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Constants + value checks for text module preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>FIELDS_N_STRUCTURES</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Range table with excluding or including output fields</DESCRIPT>
@@ -146,16 +151,6 @@
      <CMPNAME>TEXT_IN_PREPARATION</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>CA-TBX: Text preparation: Text in preparation for output</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>TP_OPTIONS</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>CA-TBX: Constants + value checks for text module preparation</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>TP_OPTIONS</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>CA-TBX: Constants + value checks for text module preparation</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>USE_TEXT_FROM</CMPNAME>

@@ -30,7 +30,7 @@ CLASS zcl_ca_text_preparation DEFINITION PUBLIC
 *     Attributes
       boolean                        FOR zif_ca_text_preparation~boolean,
       sel_options                    FOR zif_ca_text_preparation~sel_options,
-      tp_options                     FOR zif_ca_text_preparation~tp_options,
+      cvc_tp                         FOR zif_ca_text_preparation~cvc_tp,
       text_in_preparation            FOR zif_ca_text_preparation~text_in_preparation,
       control_settings               FOR zif_ca_text_preparation~control_settings,
       fields_n_structures            FOR zif_ca_text_preparation~fields_n_structures,
@@ -172,7 +172,7 @@ CLASS zcl_ca_text_preparation DEFINITION PUBLIC
         "! <p class="shorttext synchronized" lang="en">Name of include with DDIC defs. of FG ZCA_TEXT_PREPARATION</p>
         include_ddic_definitions TYPE syrepid VALUE 'LZCA_TEXT_PREPARATIONTAB'  ##no_text,
         "! <p class="shorttext synchronized" lang="en">Table SYST is default def. with a dot -&gt; always last one</p>
-        table_syst               TYPE char10 VALUE 'SYST.' ##no_text,
+        table_syst               TYPE char20  VALUE 'syst ##needed.' ##no_text,
       END   OF techn_name.
 
 *   i n s t a n c e   a t t r i b u t e s
@@ -257,17 +257,17 @@ CLASS zcl_ca_text_preparation IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Add HTML addition for SAP script if not found or correct
     "-----------------------------------------------------------------*
-    FIND FIRST OCCURRENCE OF tp_options->techn_addition-mail_html_command
+    FIND FIRST OCCURRENCE OF cvc_tp->techn_addition-mail_html_command
                                                         IN TABLE text_in_preparation->text_lines
                                                         MATCH LINE DATA(_found_in_line) ##no_text.
     IF sy-subrc NE 0.
-      text_in_preparation->insert_line_at_the_beginning( CONV #( tp_options->techn_addition-mail_html_command ) ) ##no_text.
+      text_in_preparation->insert_line_at_the_beginning( CONV #( cvc_tp->techn_addition-mail_html_command ) ) ##no_text.
 
     ELSE.
       DATA(_line_with_sap_script_addition) = REF #( text_in_preparation->text_lines[ _found_in_line ] ).
       "Has a HTML tag added? -> Replace by the original.
-      IF strlen( _line_with_sap_script_addition->line ) GT strlen( tp_options->techn_addition-mail_html_command ).
-        _line_with_sap_script_addition->line = tp_options->techn_addition-mail_html_command.
+      IF strlen( _line_with_sap_script_addition->line ) GT strlen( cvc_tp->techn_addition-mail_html_command ).
+        _line_with_sap_script_addition->line = cvc_tp->techn_addition-mail_html_command.
       ENDIF.
     ENDIF.
   ENDMETHOD.                    "add_html_additon_4_sap_script
@@ -342,9 +342,9 @@ CLASS zcl_ca_text_preparation IMPLEMENTATION.
     "-----------------------------------------------------------------*
     boolean     = zcl_ca_c_numeric_boolean=>get_instance( ).
     sel_options = zcl_ca_c_sel_options=>get_instance( ).
-    tp_options  = zcl_ca_c_text_preparation=>get_instance( ).
+    cvc_tp  = zcl_ca_c_text_preparation=>get_instance( ).
 
-    tp_options->is_preparation_type_valid( preparation_type ).
+    cvc_tp->is_preparation_type_valid( preparation_type ).
     me->preparation_type = preparation_type.
   ENDMETHOD.                    "constructor
 
@@ -414,7 +414,7 @@ CLASS zcl_ca_text_preparation IMPLEMENTATION.
     "   Checks whether the value is a relevant structure type
     "-----------------------------------------------------------------*
     "Get technical type description of value
-    techn_descr = tp_options->get_technical_description( data_value ).
+    techn_descr = cvc_tp->get_technical_description( data_value ).
 
     "Respect only structures of flat type and defined in DDIC. Others can not be handled by SAP script.
     result = abap_true.

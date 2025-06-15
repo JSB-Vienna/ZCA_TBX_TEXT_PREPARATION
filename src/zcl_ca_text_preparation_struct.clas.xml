@@ -79,6 +79,11 @@
      <DESCRIPT>Create data reference for a single table row for ASSIGN</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>CVC_TP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Constants and value checks for text module preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>DESCRIPTION</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Original techn. structure description</DESCRIPT>
@@ -107,16 +112,6 @@
      <CMPNAME>TABLE_ROW</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Dynamically created reference for data row</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>TP_OPTIONS</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Constants and value checks for text module preparation</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>TP_OPTIONS</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Constants and value checks for text module preparation</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>TY_S_STRUCTURE_COMPONENT</CMPNAME>

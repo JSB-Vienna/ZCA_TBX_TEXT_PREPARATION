@@ -83,7 +83,7 @@ CLASS zcl_ca_text_preparation_struct DEFINITION PUBLIC
     DATA:
 *     o b j e c t   r e f e r e n c e s
       "! <p class="shorttext synchronized" lang="en">Constants and value checks for text module preparation</p>
-      tp_options        TYPE REF TO zcl_ca_c_text_preparation.
+      cvc_tp                 TYPE REF TO zcl_ca_c_text_preparation.
 
 *   i n s t a n c e   m e t h o d s
     METHODS:
@@ -123,10 +123,11 @@ CLASS zcl_ca_text_preparation_struct IMPLEMENTATION.
     INSERT VALUE ty_s_structure_component(
                    name     = to_upper( structure_component-name )
                    position = position                 "Important for secondary table key
-                   element  = NEW zcl_ca_text_preparation_elem( name_to_value = to_upper( structure_component-name )
-                                                                position      = position
-                                                                description   = structure_component-type
-                                                                table_row     = table_row ) ) INTO TABLE components.
+                   element  = NEW zcl_ca_text_preparation_elem(
+                                                    name_to_value = to_upper( structure_component-name )
+                                                    position      = position
+                                                    description   = structure_component-type
+                                                    table_row     = table_row ) ) INTO TABLE components.
   ENDMETHOD.                    "add_as_elementary_component
 
 
@@ -155,16 +156,15 @@ CLASS zcl_ca_text_preparation_struct IMPLEMENTATION.
     "   Constructor
     "-----------------------------------------------------------------*
     TRY.
-        tp_options  = zcl_ca_c_text_preparation=>get_instance( ).
+        cvc_tp  = zcl_ca_c_text_preparation=>get_instance( ).
         description = row_description.
         create_data_ref_for_table_row( ).
 
         CASE row_description->kind.
           WHEN row_description->kind_elem.
             "Table is defined of a single data element + has therefore no components
-            add_as_elementary_component( structure_component = VALUE #( "name = `TABLE_LINE` ##no_text
-                                                                        type = CAST #( row_description ) )
-                                         position            = 1 ).
+            add_as_elementary_component( position            = 1
+                                         structure_component = VALUE #( type = CAST #( row_description ) ) ).
 
           WHEN row_description->kind_struct.
             add_as_structured_component( row_description ).

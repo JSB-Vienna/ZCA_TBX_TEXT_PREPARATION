@@ -19,12 +19,6 @@ CLASS zcl_ca_text_preparation_table DEFINITION PUBLIC
       prepare_table_rows             FOR  zif_ca_text_preparation_table~prepare_table_rows,
       set_defaults_in_table_settings FOR  zif_ca_text_preparation_table~set_defaults_in_table_settings.
 
-**   i n s t a n c e   a t t r i b u t e s
-*    DATA:
-**     o b j e c t   r e f e r e n c e s
-*      "! <p class="shorttext synchronized" lang="en">Technical description of the table</p>
-*      techn_descr TYPE REF TO cl_abap_tabledescr READ-ONLY.
-
 *   s t a t i c   m e t h o d s
     CLASS-METHODS:
       "! <p class="shorttext synchronized" lang="en">Get instance to corresponding preparation type</p>
@@ -71,32 +65,20 @@ CLASS zcl_ca_text_preparation_table DEFINITION PUBLIC
       row_component        TYPE REF TO zcl_ca_text_preparation_elem,
       "! <p class="shorttext synchronized" lang="en">CA-TBX: Text preparation: Current table in preparation</p>
       table_in_preparation TYPE REF TO zcl_ca_text_prepared_lines,
-*      "! <p class="shorttext synchronized" lang="en">CA-TBX: Text preparation: Complete text in preparation for output</p>
-*      text_in_preparation TYPE REF TO zcl_ca_text_prepared_lines,
-      "! <p class="shorttext synchronized" lang="en">Constants and value checks for text module preparation</p>
-      tp_options           TYPE REF TO zcl_ca_c_text_preparation,
+      "! <p class="shorttext synchronized" lang="en">CA-TBX: Constants + value checks for text preparation</p>
+      cvc_tp               TYPE REF TO zcl_ca_c_text_preparation,
 
 *     d a t a   r e f e r e n c e s
-*      "! <p class="shorttext synchronized" lang="en">Dynamically created reference for data row</p>
-*      table_row            TYPE REF TO data,
       "! <p class="shorttext synchronized" lang="en">Details to current output field</p>
       output_field         TYPE REF TO zca_s_output_field,
 
 *     t a b l e s
-*      "! <p class="shorttext synchronized" lang="en">Prepared table rows</p>
-*      prep_table_rows     TYPE zca_tt_text_lines,
       "! <p class="shorttext synchronized" lang="en">Range table with excluding or including requested columns</p>
       requested_columns    TYPE rsdsselopt_t,
 
 *     s t r u c t u r e s
       "! <p class="shorttext synchronized" lang="en">Prepared table row currently in preparation</p>
       line_in_preparation  TYPE text2048.
-*      "! <p class="shorttext synchronized" lang="en">Description</p>
-*      ms_...               TYPE x..
-*
-**     s i n g l e   v a l u e s
-*      "! <p class="shorttext synchronized" lang="en">Description</p>
-*      mv_...               TYPE x..
 
 *   i n s t a n c e   m e t h o d s
     METHODS:
@@ -214,7 +196,7 @@ CLASS zcl_ca_text_preparation_table DEFINITION PUBLIC
       "! @raising   zcx_ca_text_preparation | <p class="shorttext synchronized" lang="en">CA-TBX exception: While preparing text module</p>
       prepare_cell_value_for_output ABSTRACT
         RETURNING
-          VALUE(result) TYPE text200
+          VALUE(result) TYPE so_text255
         RAISING
           zcx_ca_text_preparation,
 
@@ -224,10 +206,7 @@ CLASS zcl_ca_text_preparation_table DEFINITION PUBLIC
 
 * P R I V A T E   S E C T I O N
   PRIVATE SECTION.
-**   i n s t a n c e   m e t h o d s
-*    METHODS:
-*      "! <p class="shorttext synchronized" lang="en">Set default values for non-provided table settings</p>
-*      set_defaults_in_table_settings.
+
 
 ENDCLASS.                     "zcl_ca_text_preparation_table  DEFINITION
 
@@ -250,7 +229,7 @@ CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
     "-----------------------------------------------------------------*
     boolean     = zcl_ca_c_numeric_boolean=>get_instance( ).
     sel_options = zcl_ca_c_sel_options=>get_instance( ).
-    tp_options  = zcl_ca_c_text_preparation=>get_instance( ).
+    cvc_tp      = zcl_ca_c_text_preparation=>get_instance( ).
 
     me->parent           = parent.
     "Local text lines instance for the preparation of this table. There no text lines or text key has to be passed.
@@ -318,8 +297,7 @@ CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Get instance to corresponding preparation type
     "-----------------------------------------------------------------*
-    DATA(_tp_options) = zcl_ca_c_text_preparation=>get_instance( ).
-    _tp_options->is_preparation_type_valid( parent->preparation_type ).
+    zcl_ca_c_text_preparation=>get_instance( )->is_preparation_type_valid( parent->preparation_type ).
 
     TRY.
         DATA(_class_name) = |ZCL_CA_TEXT_PREP_TABLE_{ parent->preparation_type }| ##no_text.
@@ -385,7 +363,7 @@ CLASS zcl_ca_text_preparation_table IMPLEMENTATION.
         is_value_bound( ).
 
         IF techn_table IS NOT BOUND.
-          techn_table ?= tp_options->get_technical_description( settings->value ).
+          techn_table ?= cvc_tp->get_technical_description( settings->value ).
         ENDIF.
 
         result = abap_true.

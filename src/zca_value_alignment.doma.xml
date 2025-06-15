@@ -3,13 +3,13 @@
  <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
   <asx:values>
    <DD01V>
-    <DOMNAME>ZCA_FRAME_WIDTH</DOMNAME>
+    <DOMNAME>ZCA_VALUE_ALIGNMENT</DOMNAME>
     <DDLANGUAGE>E</DDLANGUAGE>
     <DATATYPE>CHAR</DATATYPE>
     <LENG>000001</LENG>
     <OUTPUTLEN>000001</OUTPUTLEN>
     <VALEXI>X</VALEXI>
-    <DDTEXT>CA-TBX: Frame (border) width (default=0)</DDTEXT>
+    <DDTEXT>CA-TBX: Alignment of a value (default = 0 = left)</DDTEXT>
     <DOMMASTER>E</DOMMASTER>
    </DD01V>
    <DD07V_TAB>
@@ -22,28 +22,22 @@
      <VALPOS>0002</VALPOS>
      <DDLANGUAGE>E</DDLANGUAGE>
      <DOMVALUE_L>0</DOMVALUE_L>
-     <DDTEXT>None (no frame/border)</DDTEXT>
+     <DDTEXT>Left</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0003</VALPOS>
      <DDLANGUAGE>E</DDLANGUAGE>
      <DOMVALUE_L>1</DOMVALUE_L>
-     <DDTEXT>Thin</DDTEXT>
+     <DDTEXT>Centered</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0004</VALPOS>
      <DDLANGUAGE>E</DDLANGUAGE>
      <DOMVALUE_L>2</DOMVALUE_L>
-     <DDTEXT>Medium</DDTEXT>
+     <DDTEXT>Right</DDTEXT>
     </DD07V>
     <DD07V>
      <VALPOS>0005</VALPOS>
-     <DDLANGUAGE>E</DDLANGUAGE>
-     <DOMVALUE_L>3</DOMVALUE_L>
-     <DDTEXT>Thick</DDTEXT>
-    </DD07V>
-    <DD07V>
-     <VALPOS>0006</VALPOS>
      <DDLANGUAGE>E</DDLANGUAGE>
      <DOMVALUE_L>9</DOMVALUE_L>
      <DDTEXT>Inherit from a higher element</DDTEXT>
@@ -55,7 +49,7 @@
    <DD01_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>CA-TBX: Frame (border) width (default=9)</DDTEXT>
+     <DDTEXT>CA-TBX: Alignment of table description (caption) (default=9)</DDTEXT>
     </item>
    </DD01_TEXTS>
    <DD07_TEXTS>
@@ -67,27 +61,22 @@
      <VALPOS>0002</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>0</DOMVALUE_L>
-     <DDTEXT>Thin</DDTEXT>
+     <DDTEXT>Centered (in the middle of the table width)</DDTEXT>
     </item>
     <item>
      <VALPOS>0003</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>1</DOMVALUE_L>
-     <DDTEXT>Medium</DDTEXT>
+     <DDTEXT>Left</DDTEXT>
     </item>
     <item>
      <VALPOS>0004</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>2</DOMVALUE_L>
-     <DDTEXT>Thick</DDTEXT>
+     <DDTEXT>Right</DDTEXT>
     </item>
     <item>
      <VALPOS>0005</VALPOS>
-     <DDLANGUAGE>D</DDLANGUAGE>
-     <DOMVALUE_L>3</DOMVALUE_L>
-    </item>
-    <item>
-     <VALPOS>0006</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>9</DOMVALUE_L>
      <DDTEXT>Inherit from a higher element</DDTEXT>

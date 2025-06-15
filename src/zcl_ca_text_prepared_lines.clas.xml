@@ -74,6 +74,11 @@
      <DESCRIPT>Create symbols for search (name is bracketed in hashes)</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>CVC_TP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Constants + value checks for text module preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>DOES_SYMBOL_OCCUR_IN_TEXT</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Returns whether a symbol occur in the text lines</DESCRIPT>
@@ -232,16 +237,6 @@
      <CMPNAME>TEXT_MODULE_LINES</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Text module lines (until replacement via SAP script FMs)</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>TP_OPTIONS</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>CA-TBX: Constants + value checks for text module preparation</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>TP_OPTIONS</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>CA-TBX: Constants + value checks for text module preparation</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
    <DESCRIPTIONS_SUB>

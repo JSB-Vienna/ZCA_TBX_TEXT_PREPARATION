@@ -113,7 +113,7 @@ CLASS zcl_ca_text_prepared_lines DEFINITION PUBLIC
       "! <p class="shorttext synchronized" lang="en">CA-TBX: Text module preparation</p>
       parent             TYPE REF TO zif_ca_text_preparation,
       "! <p class="shorttext synchronized" lang="en">CA-TBX: Constants + value checks for text module preparation</p>
-      tp_options         TYPE REF TO zcl_ca_c_text_preparation,
+      cvc_tp             TYPE REF TO zcl_ca_c_text_preparation,
 
 *     t a b l e s
       "! <p class="shorttext synchronized" lang="en">Text lines (either imported from table or text module)</p>
@@ -181,17 +181,18 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
     "   Constructor
     "-----------------------------------------------------------------*
     me->parent = parent.
-    tp_options = zcl_ca_c_text_preparation=>get_instance( ).
+    cvc_tp = zcl_ca_c_text_preparation=>get_instance( ).
 
     "No exception here if nothing was passed -> in some cases it's ok to start empty (= no base text)
     IF text_lines IS NOT INITIAL.
       CASE parent->preparation_type.
-        WHEN parent->tp_options->preparation_type-html.
-          "Add a line break to each raw line before preparation starts. To do it later, is much worse.
-          me->text_lines = VALUE #( FOR _text_line IN text_lines
-                                          ( line = CONV #( |{ _text_line-line }{ tp_options->html_tag-line_break }| ) ) ).
+        WHEN parent->cvc_tp->preparation_type-html.
+*          "Add a line break to each raw line before preparation starts. To do it later, is much worse.
+*          me->text_lines = VALUE #( FOR _text_line IN text_lines
+*                                     ( line = CONV #( |{ _text_line-line }{ cvc_tp->html_tag-line_break }| ) ) ).
+          me->text_lines = text_lines.
 
-        WHEN parent->tp_options->preparation_type-raw.
+        WHEN parent->cvc_tp->preparation_type-raw.
           me->text_lines = text_lines.
       ENDCASE.
 
@@ -212,7 +213,7 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
     result = abap_false.
     DATA(_first_line) = REF #( text_lines[ 1 ] OPTIONAL ).
     IF _first_line IS BOUND AND
-       _first_line->line CS tp_options->techn_addition-mail_html_command.
+       _first_line->line CS cvc_tp->techn_addition-mail_html_command.
       result = abap_true.
     ENDIF.
   ENDMETHOD.                    "contains_mail_html_command
@@ -232,7 +233,7 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
                                               tdline   = _text_line-line ) ).
     IF NOT contains_mail_html_command( ).
       INSERT VALUE #( tdformat = '/:'
-                      tdline   = tp_options->techn_addition-mail_html_command ) INTO  text_module_lines
+                      tdline   = cvc_tp->techn_addition-mail_html_command ) INTO  text_module_lines
                                                                                 INDEX 1 ##no_text.
     ENDIF.
 
@@ -381,20 +382,24 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
     "   (Re-)Convert text module (SAP-Script) into text lines
     "-----------------------------------------------------------------*
     CASE parent->preparation_type.
-      WHEN parent->tp_options->preparation_type-html.
+      WHEN parent->cvc_tp->preparation_type-html.
         "Add a line break to each raw line before the preparation starts. To do it later, is much worse.
         text_lines = VALUE #(
             FOR _text_line_for_html IN text_module_lines
                   ( line = CONV #(       "If text line ends already with a line break <br> then keep it as is
-                       COND #( WHEN _text_line_for_html-tdline CP |*{ tp_options->html_tag-line_break }|
+                       COND #( WHEN _text_line_for_html-tdformat EQ |/:| OR "spare SAP script command
+                                    _text_line_for_html-tdline CP |#*#| OR "spare symbols only
+                                    _text_line_for_html-tdline CP |*</h+>| OR "spare header tags
+                                    _text_line_for_html-tdline CP |*</p>| OR "spare paragraph tags
+                                    _text_line_for_html-tdline CP |*{ cvc_tp->html_tag-line_break }|
                                  THEN _text_line_for_html-tdline
-                                 ELSE |{ _text_line_for_html-tdline }{ tp_options->html_tag-line_break }| ) ) ) ).
+                                 ELSE |{ _text_line_for_html-tdline }{ cvc_tp->html_tag-line_break }| ) ) ) ).
 
         IF contains_mail_html_command( ).
           DELETE text_lines INDEX 1.    "This was necessary only for SAP script symbol replacements
         ENDIF.
 
-      WHEN parent->tp_options->preparation_type-raw.
+      WHEN parent->cvc_tp->preparation_type-raw.
         text_lines = VALUE #( FOR _text_line_for_raw IN text_module_lines
                                     ( line = _text_line_for_raw-tdline ) ).
     ENDCASE.

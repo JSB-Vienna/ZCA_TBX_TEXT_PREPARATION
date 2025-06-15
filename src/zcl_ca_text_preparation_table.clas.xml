@@ -26,7 +26,7 @@
     <SEOCOMPOTX>
      <CMPNAME>ADD_TABLE_BODY</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Description</DESCRIPT>
+     <DESCRIPT>Add data rows of table (body) to table of prepared rows</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>ADD_TABLE_CAPTION</CMPNAME>
@@ -119,6 +119,11 @@
      <DESCRIPT>Create and attach single data column to prepared row</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>CVC_TP</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>CA-TBX: Constants + value checks for text preparation</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>DETERMINE_FIELD_LABEL</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Determine field label as column header text</DESCRIPT>
@@ -146,7 +151,7 @@
     <SEOCOMPOTX>
      <CMPNAME>GET_INSTANCE</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Technical description of the table</DESCRIPT>
+     <DESCRIPT>Get instance to corresponding preparation type</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>GET_ROW_DESCRIPTION</CMPNAME>
@@ -231,7 +236,7 @@
     <SEOCOMPOTX>
      <CMPNAME>OUTPUT_FIELD</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Dynamically created reference for data row</DESCRIPT>
+     <DESCRIPT>Details to current output field</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>PARENT</CMPNAME>
@@ -271,7 +276,7 @@
     <SEOCOMPOTX>
      <CMPNAME>REQUESTED_COLUMNS</CMPNAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>Prepared table rows</DESCRIPT>
+     <DESCRIPT>Range table with excluding or including requested columns</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>ROW_COMPONENT</CMPNAME>
@@ -312,16 +317,6 @@
      <CMPNAME>TECHN_ROW</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>CA-TBX: Text preparation: Techn. details of used structure</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>TP_OPTIONS</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>CA-TBX: Text preparation: Complete text in preparation for o</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>TP_OPTIONS</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>CA-TBX: Text preparation: Complete text in preparation for o</DESCRIPT>
     </SEOCOMPOTX>
    </DESCRIPTIONS>
    <DESCRIPTIONS_SUB>

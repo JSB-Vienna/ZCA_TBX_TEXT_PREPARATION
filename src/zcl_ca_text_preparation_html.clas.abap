@@ -100,15 +100,15 @@ CLASS zcl_ca_text_preparation_html IMPLEMENTATION.
     ENDIF.
 
     "Set tag and replace font and font size by defined values.
-    text_in_preparation->insert_line_at_the_beginning( CONV #( tp_options->html_tag-body-open ) ) ##no_text.   "<body>
-    text_in_preparation->insert_line_at_the_beginning( CONV #( tp_options->html_tag-head-close ) ) ##no_text.  "</head>
+    text_in_preparation->insert_line_at_the_beginning( CONV #( cvc_tp->html_tag-body-open ) ) ##no_text.   "<body>
+    text_in_preparation->insert_line_at_the_beginning( CONV #( cvc_tp->html_tag-head-close ) ) ##no_text.  "</head>
     text_in_preparation->insert_line_at_the_beginning( |<meta charset="{ control_settings-charset }">| ) ##no_text.
-    text_in_preparation->insert_line_at_the_beginning( CONV #( tp_options->html_tag-head-open ) ) ##no_text.   "<head>
-    text_in_preparation->insert_line_at_the_beginning( CONV #( tp_options->html_tag-html-open ) ) ##no_text.   "<html>
+    text_in_preparation->insert_line_at_the_beginning( CONV #( cvc_tp->html_tag-head-open ) ) ##no_text.   "<head>
+    text_in_preparation->insert_line_at_the_beginning( CONV #( cvc_tp->html_tag-html-open ) ) ##no_text.   "<html>
     text_in_preparation->insert_line_at_the_beginning( |<!doctype html>| ) ##no_text.
 
-    text_in_preparation->add_line_at_the_end( CONV #( tp_options->html_tag-body-close ) ) ##no_text.   "<body>
-    text_in_preparation->add_line_at_the_end( CONV #( tp_options->html_tag-html-close ) ) ##no_text.   "<html>
+    text_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-body-close ) ) ##no_text.   "<body>
+    text_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-html-close ) ) ##no_text.   "<html>
   ENDMETHOD.                    "add_overall_surrounding_tags
 
 
@@ -117,7 +117,7 @@ CLASS zcl_ca_text_preparation_html IMPLEMENTATION.
     "   Assemble link
     "-----------------------------------------------------------------*
     IF link_settings->link IS INITIAL.
-      IF link_settings->keep_symbol EQ boolean->true.
+      IF control_settings-remove_unused_symbols EQ boolean->false.
         result = link_settings->name.    "To let the consumer know which link is incomplete
       ENDIF.
 
@@ -147,11 +147,11 @@ CLASS zcl_ca_text_preparation_html IMPLEMENTATION.
       result = NEW #( parent          = me
                       text_module_key = link_settings->s_text_key ).
       result->replace_sap_script_symbols( ).
-*      result->add_line_at_the_end( CONV #( tp_options->html_tag-line_break ) ).  "To force the link into the next line
+*      result->add_line_at_the_end( CONV #( cvc_tp->html_tag-line_break ) ).  "To force the link into the next line
 
     ELSEIF link_settings->link_desc IS NOT INITIAL.
       result = NEW #( parent     = me                                            "To force the link into the next line
-                      text_lines = VALUE #( ( line = |{ link_settings->link_desc }{ tp_options->html_tag-line_break }| ) ) ).
+                      text_lines = VALUE #( ( line = |{ link_settings->link_desc }{ cvc_tp->html_tag-line_break }| ) ) ).
 
     ELSE.
       result = NEW #( parent = me ).     "No description available
@@ -191,11 +191,11 @@ CLASS zcl_ca_text_preparation_html IMPLEMENTATION.
 
     _link_descr_in_preparation->add_line_at_the_end(
                               |{ assemble_link( ) }{ SWITCH #( link_settings->force_line_break
-                                                       WHEN boolean->true  THEN tp_options->html_tag-line_break
+                                                       WHEN boolean->true  THEN cvc_tp->html_tag-line_break
                                                        WHEN boolean->false THEN space ) }| ).
 
     IF link_settings->force_init_line EQ boolean->true.
-      _link_descr_in_preparation->add_line_at_the_end( CONV #( tp_options->html_tag-line_break ) ).
+      _link_descr_in_preparation->add_line_at_the_end( CONV #( cvc_tp->html_tag-line_break ) ).
     ENDIF.
 
     result = _link_descr_in_preparation->text_lines.
@@ -238,32 +238,32 @@ CLASS zcl_ca_text_preparation_html IMPLEMENTATION.
     "Set defaults if no relevant values available
     "P r o p o r t i o n a l
     IF me->control_settings-font_prop IS INITIAL.
-      me->control_settings-font_prop = tp_options->html-defaults-font-proportional.
+      me->control_settings-font_prop = cvc_tp->html-defaults-font-proportional.
     ENDIF.
 
     IF me->control_settings-fontsize_prop IS NOT INITIAL.
-      tp_options->is_font_size_valid( me->control_settings-fontsize_prop ).
+      cvc_tp->is_font_size_valid( me->control_settings-fontsize_prop ).
     ELSE.
-      me->control_settings-fontsize_prop = tp_options->html-defaults-font_size-proportional.
+      me->control_settings-fontsize_prop = cvc_tp->html-defaults-font_size-proportional.
     ENDIF.
 
     IF me->control_settings-fonttype_prop IS INITIAL.
-      me->control_settings-fonttype_prop = tp_options->html-defaults-font_type-proportional.
+      me->control_settings-fonttype_prop = cvc_tp->html-defaults-font_type-proportional.
     ENDIF.
 
     "M o n o s p a c e d
     IF me->control_settings-font_monospc IS INITIAL.
-      me->control_settings-font_monospc = tp_options->html-defaults-font-monospace.
+      me->control_settings-font_monospc = cvc_tp->html-defaults-font-monospace.
     ENDIF.
 
     IF me->control_settings-fontsize_monospc IS NOT INITIAL.
-      tp_options->is_font_size_valid( me->control_settings-fontsize_monospc ).
+      cvc_tp->is_font_size_valid( me->control_settings-fontsize_monospc ).
     ELSE.
-      me->control_settings-fontsize_monospc = tp_options->html-defaults-font_size-monospace.
+      me->control_settings-fontsize_monospc = cvc_tp->html-defaults-font_size-monospace.
     ENDIF.
 
     IF me->control_settings-fonttype_monospc IS INITIAL.
-      me->control_settings-fonttype_monospc = tp_options->html-defaults-font_type-monospace.
+      me->control_settings-fonttype_monospc = cvc_tp->html-defaults-font_type-monospace.
     ENDIF.
 
     "Set character set
@@ -297,11 +297,6 @@ CLASS zcl_ca_text_preparation_html IMPLEMENTATION.
     "Force a initial line below the link -> Default = No additional empty line
     IF link_settings->force_init_line CN '01'.
       link_settings->force_init_line = boolean->false.
-    ENDIF.
-
-    "Don't delete the symbol in the text as hint for an error -> Default = Delete symbol
-    IF link_settings->keep_symbol CN '01'.
-      link_settings->keep_symbol = boolean->false.
     ENDIF.
   ENDMETHOD.                    "set_defaults_in_link_settings
 

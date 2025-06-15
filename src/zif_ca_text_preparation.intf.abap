@@ -8,7 +8,7 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! <p class="shorttext synchronized" lang="en">CA-TBX: Constants and value checks for select option tables</p>
     sel_options         TYPE REF TO zcl_ca_c_sel_options READ-ONLY,
     "! <p class="shorttext synchronized" lang="en">CA-TBX: Constants + value checks for text module preparation</p>
-    tp_options          TYPE REF TO zcl_ca_c_text_preparation READ-ONLY,
+    cvc_tp              TYPE REF TO zcl_ca_c_text_preparation READ-ONLY,
     "! <p class="shorttext synchronized" lang="en">CA-TBX: Text preparation: Text in preparation for output</p>
     text_in_preparation TYPE REF TO zcl_ca_text_prepared_lines READ-ONLY,
 
