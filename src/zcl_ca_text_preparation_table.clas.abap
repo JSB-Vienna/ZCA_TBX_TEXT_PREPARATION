@@ -196,7 +196,7 @@ CLASS zcl_ca_text_preparation_table DEFINITION PUBLIC
       "! @raising   zcx_ca_text_preparation | <p class="shorttext synchronized" lang="en">CA-TBX exception: While preparing text module</p>
       prepare_cell_value_for_output ABSTRACT
         RETURNING
-          VALUE(result) TYPE so_text255
+          VALUE(result) TYPE text2048
         RAISING
           zcx_ca_text_preparation,
 

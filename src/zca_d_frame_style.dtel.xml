@@ -24,7 +24,7 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>CA-TBX: Frame style (use const. C_FRAMESTYLE_*, default=9)</DDTEXT>
+     <DDTEXT>CA-TBX: Frame style (use const. HTML-FRAME_STYLE-*, def=0)</DDTEXT>
      <REPTEXT>FSt</REPTEXT>
      <SCRTEXT_S>FSt</SCRTEXT_S>
      <SCRTEXT_M>Frame Style</SCRTEXT_M>

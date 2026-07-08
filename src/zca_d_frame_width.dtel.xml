@@ -24,7 +24,7 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>CA-TBX: Frame width (use const. C_FRAMEWIDTH_*, default=9)</DDTEXT>
+     <DDTEXT>CA-TBX: Frame width (use const. HTML-FRAME_WIDTH-*, def=0)</DDTEXT>
      <REPTEXT>FW</REPTEXT>
      <SCRTEXT_S>FW</SCRTEXT_S>
      <SCRTEXT_M>Frame Width</SCRTEXT_M>

@@ -9,7 +9,7 @@
     <LENG>000001</LENG>
     <OUTPUTLEN>000001</OUTPUTLEN>
     <VALEXI>X</VALEXI>
-    <DDTEXT>CA-TBX: Alignment of a value (default = 0 = left)</DDTEXT>
+    <DDTEXT>CA-TBX: Alignment of a value</DDTEXT>
     <DOMMASTER>E</DOMMASTER>
    </DD01V>
    <DD07V_TAB>
@@ -49,25 +49,26 @@
    <DD01_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>CA-TBX: Alignment of table description (caption) (default=9)</DDTEXT>
+     <DDTEXT>CA-TBX: Alignment of a value</DDTEXT>
     </item>
    </DD01_TEXTS>
    <DD07_TEXTS>
     <item>
      <VALPOS>0001</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
+     <DDTEXT>Not set</DDTEXT>
     </item>
     <item>
      <VALPOS>0002</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>0</DOMVALUE_L>
-     <DDTEXT>Centered (in the middle of the table width)</DDTEXT>
+     <DDTEXT>Left</DDTEXT>
     </item>
     <item>
      <VALPOS>0003</VALPOS>
      <DDLANGUAGE>D</DDLANGUAGE>
      <DOMVALUE_L>1</DOMVALUE_L>
-     <DDTEXT>Left</DDTEXT>
+     <DDTEXT>Centered</DDTEXT>
     </item>
     <item>
      <VALPOS>0004</VALPOS>

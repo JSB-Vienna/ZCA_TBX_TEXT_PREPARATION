@@ -5,7 +5,7 @@
    <VSEOINTERF>
     <CLSNAME>ZIF_CA_TEXT_PREPARATION</CLSNAME>
     <LANGU>E</LANGU>
-    <DESCRIPT>CA-TBX: Text module preparation</DESCRIPT>
+    <DESCRIPT>CA-TBX: Preparation of a text</DESCRIPT>
     <EXPOSURE>2</EXPOSURE>
     <STATE>1</STATE>
     <UNICODE>X</UNICODE>

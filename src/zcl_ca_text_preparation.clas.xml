@@ -134,6 +134,11 @@
      <DESCRIPT>Get text for hint that the result is a sample of test system</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
+     <CMPNAME>HAS_AN_APPROPRIATE_STRUCT_TYPE</CMPNAME>
+     <LANGU>E</LANGU>
+     <DESCRIPT>Checks whether the value has an appropriate structure type</DESCRIPT>
+    </SEOCOMPOTX>
+    <SEOCOMPOTX>
      <CMPNAME>INSERT_HINT_FOR_TEST</CMPNAME>
      <LANGU>D</LANGU>
      <DESCRIPT>Insert hint that text was created/mailed from a test system</DESCRIPT>
@@ -142,16 +147,6 @@
      <CMPNAME>INSERT_HINT_FOR_TEST</CMPNAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Insert hint that text was created/mailed from a test system</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Checks whether the value is a relevant structure type</DESCRIPT>
-    </SEOCOMPOTX>
-    <SEOCOMPOTX>
-     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
-     <LANGU>E</LANGU>
-     <DESCRIPT>Checks whether the value is a relevant structure type</DESCRIPT>
     </SEOCOMPOTX>
     <SEOCOMPOTX>
      <CMPNAME>IS_HINT_FOR_TEST_REQUIRED</CMPNAME>
@@ -410,37 +405,19 @@
      <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
-     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
-     <SCONAME>DATA_VALUE</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>Passed data value as reference</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
-     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
+     <CMPNAME>HAS_AN_APPROPRIATE_STRUCT_TYPE</CMPNAME>
      <SCONAME>DATA_VALUE</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>Passed data value as reference</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
-     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
-     <SCONAME>RESULT</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>X = It is a relevant structure type</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
-     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
+     <CMPNAME>HAS_AN_APPROPRIATE_STRUCT_TYPE</CMPNAME>
      <SCONAME>RESULT</SCONAME>
      <LANGU>E</LANGU>
-     <DESCRIPT>X = It is a relevant structure type</DESCRIPT>
+     <DESCRIPT>X = Data object is a structure</DESCRIPT>
     </SEOSUBCOTX>
     <SEOSUBCOTX>
-     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
-     <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
-     <LANGU>D</LANGU>
-     <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>
-    </SEOSUBCOTX>
-    <SEOSUBCOTX>
-     <CMPNAME>IS_A_RELEVANT_STRUCTURE_TYPE</CMPNAME>
+     <CMPNAME>HAS_AN_APPROPRIATE_STRUCT_TYPE</CMPNAME>
      <SCONAME>ZCX_CA_TEXT_PREPARATION</SCONAME>
      <LANGU>E</LANGU>
      <DESCRIPT>CA-TBX exception: While preparing text module</DESCRIPT>

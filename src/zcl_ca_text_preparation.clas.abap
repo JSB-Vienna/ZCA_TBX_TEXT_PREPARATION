@@ -208,12 +208,12 @@ CLASS zcl_ca_text_preparation DEFINITION PUBLIC
         RETURNING
           VALUE(result) TYPE match_result,
 
-      "! <p class="shorttext synchronized" lang="en">Checks whether the value is a relevant structure type</p>
+      "! <p class="shorttext synchronized" lang="en">Checks whether the value has an appropriate structure type</p>
       "!
       "! @parameter data_value              | <p class="shorttext synchronized" lang="en">Passed data value as reference</p>
-      "! @parameter result                  | <p class="shorttext synchronized" lang="en">X = It is a relevant structure type</p>
+      "! @parameter result                  | <p class="shorttext synchronized" lang="en">X = Data object is a structure</p>
       "! @raising   zcx_ca_text_preparation | <p class="shorttext synchronized" lang="en">CA-TBX exception: While preparing text module</p>
-      is_a_relevant_structure_type
+      has_an_appropriate_struct_type
         IMPORTING
           data_value    TYPE REF TO data
         RETURNING
@@ -290,8 +290,9 @@ CLASS zcl_ca_text_preparation IMPLEMENTATION.
     "Check structures
     LOOP AT fields_n_structures INTO  DATA(_field_or_structure)
                                 WHERE value IS BOUND.
-      IF NOT is_a_relevant_structure_type( _field_or_structure-value ) OR
-             is_structure_already_defined( ).
+
+      IF NOT has_an_appropriate_struct_type( _field_or_structure-value ) OR
+         is_structure_already_defined( ).
         CONTINUE.
       ENDIF.
 
@@ -409,27 +410,38 @@ CLASS zcl_ca_text_preparation IMPLEMENTATION.
   ENDMETHOD.                    "get_text_for_hint_of_a_sample
 
 
-  METHOD is_a_relevant_structure_type.
+  METHOD has_an_appropriate_struct_type.
     "-----------------------------------------------------------------*
-    "   Checks whether the value is a relevant structure type
+    "   Checks whether the value has an appropriate structure type
     "-----------------------------------------------------------------*
+    result = abap_false.
+
     "Get technical type description of value
     techn_descr = cvc_tp->get_technical_description( data_value ).
+    IF techn_descr->kind NE techn_descr->kind_struct.
+      RETURN.
+    ENDIF.
 
     "Respect only structures of flat type and defined in DDIC. Others can not be handled by SAP script.
-    result = abap_true.
     IF techn_descr->type_kind       NE techn_descr->typekind_struct1 OR
        techn_descr->is_ddic_type( ) EQ abap_false.
-      result = abap_false.
-      RETURN.
+      "Structure &1 is no DDIC obj or contains deep elements (ref./strings)!
+      RAISE EXCEPTION NEW zcx_ca_text_preparation( textid   = zcx_ca_text_preparation=>structure_is_not_appropriate
+                                                   mv_msgty = zcx_ca_text_preparation=>c_msgty_e
+                                                   mv_msgv1 = CONV #( techn_descr->get_relative_name( ) ) ) ##no_text.
     ENDIF.
 
     DATA(_struc_desc) = CAST cl_abap_structdescr( techn_descr ).
     IF _struc_desc->struct_kind EQ _struc_desc->structkind_nested OR
        _struc_desc->struct_kind EQ _struc_desc->structkind_mesh.
-      result = abap_false.
+      "Structure &1 is no DDIC obj or contains deep elements (ref./strings)!
+      RAISE EXCEPTION NEW zcx_ca_text_preparation( textid   = zcx_ca_text_preparation=>structure_is_not_appropriate
+                                                   mv_msgty = zcx_ca_text_preparation=>c_msgty_e
+                                                   mv_msgv1 = CONV #( techn_descr->get_relative_name( ) ) ) ##no_text.
     ENDIF.
-  ENDMETHOD.                    "is_a_relevant_structure_type
+
+    result = abap_true.
+  ENDMETHOD.                    "has_an_appropriate_struct_type
 
 
   METHOD is_hint_for_test_required.
@@ -457,7 +469,7 @@ CLASS zcl_ca_text_preparation IMPLEMENTATION.
     result = abap_false.
     CALL FUNCTION 'TR_SYS_PARAMS'
       IMPORTING
-        system_client_role = _client_role.
+        system_client_role = _client_role. "#EC FM_EXC_OK
 
     IF _client_role EQ 'P' ##no_text.
       result = abap_true.
@@ -552,7 +564,7 @@ CLASS zcl_ca_text_preparation IMPLEMENTATION.
   ENDMETHOD.                    "remove_unused_symbols
 
 
-  METHOD replace_link_symbols.
+  METHOD replace_link_symbols ##needed.
     "-----------------------------------------------------------------*
     "   Replace link symbols
     "-----------------------------------------------------------------*
@@ -609,10 +621,9 @@ CLASS zcl_ca_text_preparation IMPLEMENTATION.
           text_in_preparation->exchange_symbol_by_table_rows( _table->prepare_table_rows( ) ).
 
         CATCH zcx_ca_error INTO DATA(_catched).
-          DATA(_exception) = CAST zcx_ca_text_preparation(
-                                      zcx_ca_error=>create_exception(
-                                                     iv_excp_cls = zcx_ca_text_preparation=>c_zcx_ca_text_preparation
-                                                     ix_error    = _catched ) ) ##no_text.
+          DATA(_exception) = CAST zcx_ca_text_preparation( zcx_ca_error=>create_exception(
+                                             iv_excp_cls = zcx_ca_text_preparation=>c_zcx_ca_text_preparation
+                                             ix_error    = _catched ) ) ##no_text.
           IF _exception IS BOUND.
             RAISE EXCEPTION _exception.
           ENDIF.

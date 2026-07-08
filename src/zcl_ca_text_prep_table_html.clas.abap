@@ -185,14 +185,12 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
         ENDLOOP.
 
       WHEN sel_options->sign-excl.
+        "In case of the field exclusion the OUTPUT_FIELD can not determined as no explicit definition can be made
         LOOP AT techn_row->components USING KEY primary_key
                                       REFERENCE INTO DATA(_component)
-                                          WHERE name IN requested_columns.
-          output_field  = REF #( settings->t_output_flds[ fieldname = _component->name ] OPTIONAL ).
-          IF output_field IS BOUND.
-            row_component = _component->element.
-            create_n_attach_col_head_cell( ).
-          ENDIF.
+                                          WHERE name IN requested_columns. "#EC CI_HASHSEQ
+          row_component = _component->element.
+          create_n_attach_col_head_cell( ).
         ENDLOOP.
     ENDCASE.
 
@@ -235,7 +233,7 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
           "In case of the field exclusion the OUTPUT_FIELD can not determined as no explicit definition can be made
           LOOP AT techn_row->components USING KEY primary_key
                                         REFERENCE INTO DATA(_component)
-                                            WHERE name IN requested_columns.
+                                            WHERE name IN requested_columns. "#EC CI_HASHSEQ
             row_component = _component->element.
             create_n_attach_data_cell( ).
           ENDLOOP.
@@ -333,7 +331,8 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "Result example:
     "text-align:right                                                is alignment overruled??
-    result = |text-align:{ translate_alignment_2_html( COND #( WHEN output_field->alignment IS NOT INITIAL
+    result = |text-align:{ translate_alignment_2_html( COND #( WHEN output_field IS BOUND AND
+                                                                    output_field->alignment IS NOT INITIAL
                                                                  THEN output_field->alignment
                                                                  ELSE alignment ) ) }| ##no_text.
   ENDMETHOD.                    "get_style_for_cell_alignment
@@ -388,11 +387,11 @@ CLASS zcl_ca_text_prep_table_html IMPLEMENTATION.
         ENDIF.
 
         "The of the row component is already available in the ROW_COMPONENT and must not be passed
-        result = switch #( output_field->as_link
-                   when abap_true   then row_component->convert_value_type_conform(
+        result = SWITCH #( xsdbool( output_field IS BOUND AND output_field->as_link EQ abap_true )
+                   WHEN abap_true   THEN row_component->compose_link( <link_name> )
+                   WHEN abap_false  THEN row_component->convert_value_type_conform(
                                                                        currency        = <currency>
-                                                                       unit_of_measure = <unit_of_measure> )
-                   when abap_false  then row_component->compose_link( <link_name> ) ).
+                                                                       unit_of_measure = <unit_of_measure> ) ).
 
       CATCH zcx_ca_error INTO DATA(lx_catched).
         DATA(lx_error) = CAST zcx_ca_text_preparation( zcx_ca_error=>create_exception(

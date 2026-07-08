@@ -45,7 +45,7 @@ CLASS zcl_ca_text_preparation_elem DEFINITION PUBLIC
         IMPORTING
           link_name     TYPE csequence OPTIONAL
         RETURNING
-          VALUE(result) TYPE so_text255,
+          VALUE(result) TYPE text2048,
 
       "! <p class="shorttext synchronized" lang="en">Convert value from internal type into character format</p>
       convert_value_type_conform
@@ -53,7 +53,7 @@ CLASS zcl_ca_text_preparation_elem DEFINITION PUBLIC
           currency        TYPE waers OPTIONAL
           unit_of_measure TYPE meins OPTIONAL
         RETURNING
-          VALUE(result)   TYPE so_text255
+          VALUE(result)   TYPE text2048
         RAISING
           zcx_ca_conv.
 
@@ -204,6 +204,10 @@ CLASS zcl_ca_text_preparation_elem IMPLEMENTATION.
     "-----------------------------------------------------------------*
     "   Compose link
     "-----------------------------------------------------------------*
+    IF value_ref->* IS INITIAL.
+      RETURN.
+    ENDIF.
+
     DATA(_link_name) = COND string( WHEN link_name IS INITIAL
                          THEN 'No name to link given'(nng)
                          ELSE link_name ).

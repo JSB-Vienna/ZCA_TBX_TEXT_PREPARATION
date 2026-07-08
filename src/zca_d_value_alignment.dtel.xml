@@ -24,7 +24,7 @@
    <DD04_TEXTS>
     <item>
      <DDLANGUAGE>D</DDLANGUAGE>
-     <DDTEXT>CA-TBX: Alignment of table description (caption) (default=9)</DDTEXT>
+     <DDTEXT>CA-TBX: Alignment of a value (default = 0 = left)</DDTEXT>
      <REPTEXT>TabDescAlm</REPTEXT>
      <SCRTEXT_S>TabDescAlm</SCRTEXT_S>
      <SCRTEXT_M>Table descr. alignm.</SCRTEXT_M>

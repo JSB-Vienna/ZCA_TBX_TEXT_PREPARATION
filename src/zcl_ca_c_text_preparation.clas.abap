@@ -155,6 +155,11 @@ CLASS zcl_ca_c_text_preparation DEFINITION PUBLIC
           close TYPE its_tag VALUE '</td>'  ##no_text,
         END   OF data_column,
 
+        BEGIN OF paragraph,
+          open  TYPE its_tag VALUE '<p>'  ##no_text,
+          close TYPE its_tag VALUE '</p>'  ##no_text,
+        END   OF paragraph,
+
         line_break TYPE its_tag VALUE '<br>' ##no_text,
       END OF html_tag.
 
@@ -301,10 +306,9 @@ CLASS zcl_ca_c_text_preparation IMPLEMENTATION.
 
       CATCH zcx_ca_error
             cx_sy_move_cast_error INTO DATA(_catched).
-        DATA(_exception) = CAST zcx_ca_text_preparation(
-        zcx_ca_error=>create_exception(
-        iv_excp_cls = zcx_ca_text_preparation=>c_zcx_ca_text_preparation
-        ix_error = _catched ) ) ##no_text.
+        DATA(_exception) = CAST zcx_ca_text_preparation( zcx_ca_error=>create_exception(
+                                                iv_excp_cls = zcx_ca_text_preparation=>c_zcx_ca_text_preparation
+                                                ix_error    = _catched ) ) ##no_text.
         IF _exception IS BOUND.
           RAISE EXCEPTION _exception.
         ENDIF.

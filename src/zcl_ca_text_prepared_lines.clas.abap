@@ -66,7 +66,7 @@ CLASS zcl_ca_text_prepared_lines DEFINITION PUBLIC
       replace_symbol_by_value
         IMPORTING
           name  TYPE rs38l_par_
-          value TYPE so_text255,
+          value TYPE text2048,
 
       "! <p class="shorttext synchronized" lang="en">Set text, e. g. after additional manipulation</p>
       set_text
@@ -228,13 +228,12 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
       RETURN.
     ENDIF.
 
-    text_module_lines = VALUE #( FOR _text_line IN text_lines
-                                            ( tdformat = '*'
-                                              tdline   = _text_line-line ) ).
+    text_module_lines = VALUE #( FOR _text_line IN text_lines  ( tdformat = '*'
+                                                                 tdline   = _text_line-line ) ).
     IF NOT contains_mail_html_command( ).
       INSERT VALUE #( tdformat = '/:'
                       tdline   = cvc_tp->techn_addition-mail_html_command ) INTO  text_module_lines
-                                                                                INDEX 1 ##no_text.
+                                                                            INDEX 1 ##no_text.
     ENDIF.
 
 *    ELSE.
@@ -424,13 +423,8 @@ CLASS zcl_ca_text_prepared_lines IMPLEMENTATION.
                               offset DESCENDING.
     LOOP AT _matching_results REFERENCE INTO DATA(_matching_result).
       DATA(_text_line) = REF #( text_lines[ _matching_result->line ] ).
-      IF strlen( _text_line->line ) EQ _matching_result->length + 4.   "Text line contains only that one symbol + <br>
-        DELETE text_lines INDEX _matching_result->line.
-
-      ELSE.
-        _text_line->line = replace( val = _text_line->line  off = _matching_result->offset
-                                                            len = _matching_result->length with = '?' ).
-      ENDIF.
+      _text_line->line = replace( val = _text_line->line  off = _matching_result->offset
+                                                          len = _matching_result->length with = `` ).
     ENDLOOP.
   ENDMETHOD.                    "remove_unused_symbols
 

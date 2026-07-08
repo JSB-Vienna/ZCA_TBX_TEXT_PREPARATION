@@ -1,4 +1,4 @@
-"! <p class="shorttext synchronized" lang="en">CA-TBX: Text module preparation</p>
+"! <p class="shorttext synchronized" lang="en">CA-TBX: Preparation of a text</p>
 INTERFACE zif_ca_text_preparation PUBLIC.
 * i n s t a n c e   a t t r i b u t e s
   DATA:
@@ -76,7 +76,7 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! are using also the characters "<" and ">". This is why a specific first line has to be inserted to force
     "! that the SAP script parser is NOT executed which would destroy a HTML preparation.</p>
     "! <p>Using this flag it can be controlled whether the necessary line is checked and added if not found.</p>
-    "! <p>
+    "! <br>
     "! @parameter result                  | <p class="shorttext synchronized" lang="en">Prepared text as of type STRING</p>
     get_result_as_stream DEFAULT FAIL
       IMPORTING
@@ -120,7 +120,7 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! E. g., for RAW (= plain text) the parameter LINKS makes no sense to replace.<p>
     "! <p>This method requires that the method <strong><em>{@link .METH:use_text_from}</em></strong> has already
     "! been executed.</p>
-    "! <p>
+    "! <br>
     "! @parameter control_settings     | <p class="shorttext synchronized" lang="en">Text preparation: Control + font settings for all types</p>
     "! <p>Common values to control the text preparation. As far as possible the structure is build from several
     "! substructures to express their purpose / assignment to a specific transformation type.</p>
@@ -130,7 +130,7 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! <li><strong><em>for HTML documents - </em></strong>Here you can set the font types and size to be used.</li>
     "! <li><strong><em>for RAW documents  - </em></strong>?</li>
     "! </ul>
-    "! <p>
+    "! <br>
     "! @parameter fields_n_structures  | <p class="shorttext synchronized" lang="en">Name and value pairs for fields and structures</p>
     "! <p>This parameter has to be used when passing either specifically formated single values or structured
     "! values.</p>
@@ -151,7 +151,7 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! can select the program in the first popup. The rest is self-explaining. For further details about how to
     "! format values in SAP script have a look <strong><em>here: BC SAP Script - Formatting Options.</em></strong><br>
     "! https://help.sap.com/viewer/59204ae5e0d745628df068a6ec7591b0/7.51.7/en-US/4e34031063de02c2e10000000a15822b.html</p>
-    "! <p>
+    "! <br>
     "! @parameter tables               | <p class="shorttext synchronized" lang="en">Table values</p>
     "! <p>Each entry of this table represent one internal table with its controlling attributes. A lot of the
     "! attributes are only relevant for the transformation into HTML.</p>
@@ -160,14 +160,16 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! to exclude them from the output and that it is not possible to give in an order for the rest of the fields.
     "! In the case you have much more inclusive than exclusive fields and need a different order then use either
     "! a specific definition for your needs or build a little routine that creates the list of needed fields.</p>
+    "!
     "! <p>Furthermore you can pass an individual table header description. Which one you should provide depends
     "! on the output length of the column (mostly defined in the domain). For an output length lower equal 10
     "! use field <strong><em>SCRTEXT_S</em></strong>, lower equal 20 use <strong><em>SCRTEXT_M</em></strong>
-    "! and for all others use <strong><em>SCRTEXT_L</em></strong>.</p>
+    "! and for all others or <strong>only one text for all sizes</strong> use <strong><em>SCRTEXT_L</em></strong>.</p>
+    "!
     "! <p><strong><em>Reserve always a complete line</em></strong> in your text module for a table since the
     "! complete line with the corresponding symbol (e. g. #T_NOTES#) will replaced, irrespective what else the
     "! line contains.</p>
-    "! <p>
+    "! <br>
     "! @parameter links                | <p class="shorttext synchronized" lang="en">Links and their description</p>
     "! <p>Within this parameter you can pass all necessary components to assemble HTML links. Add a short description
     "! in <strong><em>LINK_DESC</em></strong> or use a <strong><em>text module</em></strong> for a more detailed
@@ -179,7 +181,7 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! for a link.</p>
     "! <p>In <strong><em>LINK_NAME</em></strong> you can provide a short naming to hide the technical link, e. g.
     "! "Open my Fiori Inbox".</p>
-    "! <p>
+    "! <br>
     "! @raising   zcx_ca_text_preparation | <p class="shorttext synchronized" lang="en">CA-TBX exception: While preparing text module</p>
     replace_n_transform DEFAULT FAIL
       IMPORTING
@@ -197,14 +199,14 @@ INTERFACE zif_ca_text_preparation PUBLIC.
     "! provided in column NAME (here without hashes!)</em></strong> in the parameters {@link .METH:replace_n_transform.DATA:fields_n_structures},
     "! {@link .METH:replace_n_transform.DATA:tables} and {@link .METH:replace_n_transform.DATA:links} of
     "! <strong><em>method {@link .METH:replace_n_transform}</em></strong></p>
-    "! <p>
-    "! <p>The following lines are an example how a text could look alike:<br>
+    "! <br>
+    "! <p>The following lines are an example how a text pattern could look alike:<br>
     "! <em>Dear #SALUTATION#,<br>
     "! we would like to inform you about open work items:<br>
-    "! #T_TASK_LIST#<br>
+    "! #T_TASK_LIST#
     "! <br>
     "! You can open them using the following link:<br>
-    "! #LINK_START_LAUNCHPAD#<br>
+    "! #LINK_START_LAUNCHPAD#
     "! <br>
     "! Best regards<br>
     "! Your SAP IT-Team</em><br>
